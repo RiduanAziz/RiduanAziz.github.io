@@ -294,11 +294,11 @@ export default function App() {
               </a>
               <button 
                 onClick={copyToClipboard} 
-                className="electric-border flex items-center gap-2 border border-slate-300 dark:border-slate-700 px-5 py-3 rounded-md font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition relative"
+                className="electric-border flex items-center justify-center gap-2 border border-slate-300 dark:border-slate-700 px-5 py-3 rounded-md font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition relative min-w-[135px] whitespace-nowrap"
                 aria-label="Copy email address"
               >
-                {copiedEmail ? <Check size={18} className="text-emerald-500" /> : <Copy size={18} />}
-                <span>{copiedEmail ? 'Copied Email!' : 'Copy Email'}</span>
+                {copiedEmail ? <Check size={18} className="text-emerald-500 shrink-0" /> : <Copy size={18} className="shrink-0" />}
+                <span className="whitespace-nowrap">{copiedEmail ? 'Copied!' : 'Copy Email'}</span>
               </button>
               <a href={`mailto:${professionalInfo.contacts.email}`} className="electric-border flex items-center gap-2 border border-slate-300 dark:border-slate-700 px-5 py-3 rounded-md font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition">
                 <Mail size={18} /> Gmail
@@ -714,11 +714,11 @@ export default function App() {
                 </a>
                 <button 
                   onClick={copyToClipboard}
-                  className="electric-border flex items-center justify-center gap-2 border border-slate-700 hover:bg-slate-800 text-white px-6 py-3.5 rounded-lg font-medium transition"
+                  className="electric-border flex-1 min-w-[140px] flex items-center justify-center gap-2 border border-slate-700 hover:bg-slate-800 text-white px-5 py-3.5 rounded-lg font-medium transition whitespace-nowrap"
                   aria-label="Copy email address"
                 >
-                  {copiedEmail ? <Check size={18} className="text-emerald-400" /> : <Copy size={18} />}
-                  <span>{copiedEmail ? 'Copied to Clipboard!' : 'Copy Email'}</span>
+                  {copiedEmail ? <Check size={18} className="text-emerald-400 shrink-0" /> : <Copy size={18} className="shrink-0" />}
+                  <span className="whitespace-nowrap">{copiedEmail ? 'Copied!' : 'Copy Email'}</span>
                 </button>
               </div>
 
