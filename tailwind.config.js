@@ -16,8 +16,8 @@ export default {
           dark: '#0f172a', 
         },
         accent: {
-          DEFAULT: '#2563eb', // Professional blue
-          hover: '#1d4ed8',
+          DEFAULT: '#c76645', // Warm coral accent
+          hover: '#a94d32',
         }
       }
     },

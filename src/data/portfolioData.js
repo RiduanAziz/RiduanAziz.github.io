@@ -1,12 +1,13 @@
 export const professionalInfo = {
   name: "Riduan Aziz",
-  headline: "CSE Undergrad @ CBIU | Data Science Enthusiast | Aspiring AI Engineer | Software Developer",
+  headline: "Data Science Enthusiast | Aspiring AI Engineer",
   subheadline: "Computer Science and Engineering undergraduate building practical software, data-driven solutions, and intelligent applications while developing toward a career in AI engineering.",
   about: `Riduan Aziz is a Computer Science and Engineering professional with experience spanning data management, field data collection, reporting, database-related work, software development, analytics, and emerging AI/ML technologies. His background combines practical experience in data-driven humanitarian operations with technical development in Python, databases, application development, and machine learning. He is particularly interested in building technology that transforms data into useful information, intelligent systems, and practical software solutions.`,
   contacts: {
     email: "riduan.aziz46@gmail.com",
     github: "https://github.com/RiduanAziz",
-    linkedin: "https://linkedin.com/in/riduan-aziz"
+    linkedin: "https://linkedin.com/in/riduan-aziz",
+    whatsapp: "https://wa.me/8801849703495"
   }
 };
 
@@ -14,6 +15,20 @@ export const metrics = [
   { label: "CGPA", value: "3.795 / 4.00", sub: "CSE Bachelor's Degree" },
   { label: "Primary Focus", value: "AI + Data + Software", sub: "Bridging disciplines" },
   { label: "Professional Experience", value: "3+ Roles", sub: "Data & Info Management" }
+];
+
+export const impactHighlights = [
+  { title: "Cleaner data", description: "Field verification, validation, documentation, and information management experience." },
+  { title: "Practical software", description: "Applications and systems designed around real user workflows and useful outcomes." },
+  { title: "Intelligent systems", description: "Research and experimentation across computer vision, speech, and machine learning." },
+  { title: "Continuous growth", description: "Actively developing modern backend, cloud, deployment, and generative AI skills." }
+];
+
+export const focusAreas = [
+  { title: "Software Engineering", description: "Application development, backend APIs, databases, and maintainable technical foundations." },
+  { title: "Data & Information Management", description: "Collection, quality assurance, cleaning, reporting, and turning information into decisions." },
+  { title: "AI & Machine Learning", description: "Computer vision, speech recognition, deep learning, and applied intelligent systems." },
+  { title: "Modern IT Development", description: "FastAPI, Docker, cloud workflows, GitHub, and responsible technical learning." }
 ];
 
 export const experience = [
@@ -106,7 +121,23 @@ export const projects = [
     tech: ["Python", "Whisper", "PyTorch", "Hugging Face", "PEFT", "LoRA"],
     github: "https://github.com/RiduanAziz",
     status: "AI/ML Research"
-  }
+  },
+  {
+    title: "DataSetSanity",
+    category: "Data",
+    description: "A lightweight Python tool for sanity checks on machine-learning datasets, including missing values, class imbalance, and potential data leakage.",
+    tech: ["Python", "Jupyter", "Data Quality"],
+    github: "https://github.com/RiduanAziz/DataSetSanity-PyPi-Package",
+    status: "Data Engineering Project"
+  },
+  {
+    title: "Adury Voice Assistant",
+    category: "AI/ML",
+    description: "An interactive voice assistant system exploring task automation and natural user interaction with Python.",
+    tech: ["Python", "Speech Processing", "Automation"],
+    github: "https://github.com/RiduanAziz/Adury-Voice-Assistant-System",
+    status: "AI Application Project"
+  },
 ];
 
 export const concepts = [
@@ -118,15 +149,15 @@ export const concepts = [
 ];
 
 export const education = [
-  { degree: "B.Sc. in Computer Science and Engineering", institution: "Cox's Bazar International University (CBIU)", details: "CGPA: 3.795 / 4.00 | Expected Graduation: Sept 2026 | Completed 152/160 Credits" },
-  { degree: "Higher Secondary Certificate (Science)", institution: "Cox's Bazar Government College", details: "GPA: 3.42 / 5.00 | 2018" },
-  { degree: "Secondary School Certificate (Science)", institution: "Ukhiya Government High School", details: "GPA: 5.00 / 5.00 | 2016" }
+  { degree: "B.Sc. in Computer Science and Engineering", institution: "Cox's Bazar International University (CBIU)", details: "CGPA: 3.795 / 4.00 | Expected Graduation: Sept 2026 | Completed 152 / 160 Credits" },
+  { degree: "Higher Secondary Certificate (HSC)", institution: "Cox's Bazar Government College", details: "GPA: 3.42 / 5.00 | Science | 2018" },
+  { degree: "Secondary School Certificate (SSC)", institution: "Ukhiya Government High School", details: "GPA: 5.00 / 5.00  | Science | 2016" }
 ];
 
 export const certifications = [
+  { title: "Full Stack Data Science with Generative AI Bootcamp 1.0", issuer: "Inception BD", year: "Appeared (8 Months)" },
   { title: "CS50x: CS50's Introduction to Computer Science", issuer: "Harvard University / edX", year: "2026" },
   { title: "AWS Academy Graduate — Machine Learning Foundations", issuer: "AWS Academy", year: "2025" },
-  { title: "Full Stack Data Science with Generative AI Bootcamp 1.0", issuer: "Inception BD", year: "Appeared (8 Months)" },
   { title: "Course on Disaster Management", issuer: "Bangladesh Scouts", year: "2025" },
   { title: "Microsoft Office Specialist: Excel Certification — Intermediate Level", issuer: "Great Learning", year: "2022" },
   { title: "Professional Outsourcing Training (Graphic Design)", issuer: "ICT Division, Bangladesh", year: "2021" }
