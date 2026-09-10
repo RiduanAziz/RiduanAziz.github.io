@@ -1,63 +1,55 @@
-// Mobile Menu Toggle
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-const navLinksList = document.querySelectorAll('.nav-links li a');
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // 1. Intersection Observer for Smooth Scroll Reveals
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
 
-const closeMenu = () => {
-    navLinks.classList.remove('active');
-    hamburger.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', 'false');
-    hamburger.setAttribute('aria-label', 'Open navigation menu');
-};
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Only animate once
+            }
+        });
+    }, observerOptions);
 
-hamburger.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('active');
-    hamburger.classList.toggle('active', isOpen);
-    hamburger.setAttribute('aria-expanded', String(isOpen));
-    hamburger.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
-});
+    const revealElements = document.querySelectorAll('.reveal-up, .reveal-left');
+    revealElements.forEach(el => revealObserver.observe(el));
 
-// Close mobile menu when a link is clicked
-navLinksList.forEach(link => {
-    link.addEventListener('click', () => {
-        closeMenu();
+
+    // 2. Magnetic Button Effect (Premium UI Interaction)
+    const magneticButtons = document.querySelectorAll('.magnetic');
+
+    magneticButtons.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const position = btn.getBoundingClientRect();
+            const x = e.pageX - position.left - position.width / 2;
+            const y = e.pageY - position.top - position.height / 2;
+            
+            // Move button slightly towards cursor
+            btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+        });
+
+        btn.addEventListener('mouseout', () => {
+            // Snap back into place
+            btn.style.transform = 'translate(0px, 0px)';
+        });
     });
-});
 
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-        closeMenu();
-    }
-});
-
-// Sticky Navbar Background on Scroll
-const navbar = document.getElementById('navbar');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-// Intersection Observer for Scroll Animations (Fade-In)
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.15
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            // Stop observing once animated to improve performance
-            observer.unobserve(entry.target);
+    // 3. Dynamic Glass Navbar Shrink on Scroll
+    const navbar = document.getElementById('navbar');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.style.padding = "0.8rem 2rem";
+            navbar.style.background = "rgba(10, 10, 10, 0.85)";
+        } else {
+            navbar.style.padding = "1rem 2rem";
+            navbar.style.background = "rgba(15, 15, 15, 0.7)";
         }
     });
-}, observerOptions);
 
-document.querySelectorAll('.fade-in').forEach((section) => {
-    observer.observe(section);
 });
