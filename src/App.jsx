@@ -61,16 +61,20 @@ export default function App() {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') setResumeModalOpen(false);
+      if (e.key === 'Escape' || e.keyCode === 27) {
+        setResumeModalOpen(false);
+      }
     };
     if (resumeModalOpen) {
-      window.addEventListener('keydown', handleKeyDown);
+      window.addEventListener('keydown', handleKeyDown, true);
+      document.addEventListener('keydown', handleKeyDown, true);
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keydown', handleKeyDown, true);
+      document.removeEventListener('keydown', handleKeyDown, true);
       document.body.style.overflow = 'unset';
     };
   }, [resumeModalOpen]);
@@ -895,13 +899,18 @@ export default function App() {
       {/* Interactive Resume Viewer Modal */}
       <AnimatePresence>
         {resumeModalOpen && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/80 backdrop-blur-md">
+          <div 
+            onClick={() => setResumeModalOpen(false)}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/80 backdrop-blur-md cursor-pointer"
+          >
             <motion.div 
+              onClick={(e) => e.stopPropagation()}
+              tabIndex={-1}
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.22, ease: "easeOut" }}
-              className="relative w-full max-w-5xl h-[90vh] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden"
+              className="relative w-full max-w-5xl h-[90vh] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden cursor-default focus:outline-none"
             >
               {/* Modal Header */}
               <div className="px-5 py-3 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50/90 dark:bg-slate-800/90 backdrop-blur-sm shrink-0">
@@ -1007,11 +1016,36 @@ export default function App() {
                     ))}
                   </div>
                 ) : (
-                  <iframe
-                    src={`${resumeUrl}#toolbar=1&navpanes=0`}
-                    title="CV of Riduan Aziz"
-                    className="w-full h-full border-0 bg-white rounded-lg shadow-xl"
-                  />
+                  <div className="w-full h-full flex flex-col items-center justify-center">
+                    <object
+                      data={`${import.meta.env.BASE_URL}assets/cv.pdf#toolbar=1`}
+                      type="application/pdf"
+                      className="w-full h-full rounded-lg bg-white shadow-xl"
+                    >
+                      <div className="flex flex-col items-center justify-center h-full p-8 text-center bg-white dark:bg-slate-900 rounded-lg max-w-md mx-auto">
+                        <FileText size={44} className="text-accent mb-3" />
+                        <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">Browser Inline PDF Blocked</h4>
+                        <p className="text-xs text-slate-500 mb-6 leading-relaxed">
+                          Your browser is set to download PDFs directly rather than embedding them inline. Switch to <strong>Document View</strong> to see all 3 rendered pages immediately, or download the original file.
+                        </p>
+                        <div className="flex flex-wrap gap-2 justify-center">
+                          <button
+                            onClick={() => setCvViewMode('doc')}
+                            className="px-4 py-2 text-xs font-semibold rounded-lg bg-accent text-white hover:bg-accent-hover transition shadow-sm"
+                          >
+                            View All 3 Pages (Document View)
+                          </button>
+                          <a
+                            href={resumeUrl}
+                            download="CV of Riduan Aziz.pdf"
+                            className="px-4 py-2 text-xs font-medium rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition text-slate-800 dark:text-slate-200"
+                          >
+                            Download PDF
+                          </a>
+                        </div>
+                      </div>
+                    </object>
+                  </div>
                 )}
               </div>
 
