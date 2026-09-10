@@ -8,7 +8,8 @@ export const professionalInfo = {
     github: "https://github.com/RiduanAziz",
     linkedin: "https://linkedin.com/in/riduan-aziz",
     whatsapp: "https://wa.me/8801849703495"
-  }
+  },
+  photo: "https://github.com/RiduanAziz.png"
 };
 
 export const metrics = [
