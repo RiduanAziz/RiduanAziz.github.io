@@ -1,33 +1,37 @@
-# RiduanAziz.github.io
-My Professional Portfolio RiduanAziz.github.io
+# Riduan Aziz Portfolio
 
-# Riduan Aziz - Portfolio Website
+Professional GitHub Pages portfolio for Riduan Aziz, a Computer Science & Engineering professional focused on software engineering, AI/ML, data science, backend development, and intelligent applications.
 
-This is a modern, responsive, static portfolio website designed for GitHub Pages. It highlights my background in Computer Science & Engineering, Data Science, AI/ML, and Software Development.
+## Stack
 
-## How to Deploy on GitHub Pages
+- Semantic HTML5
+- Modern CSS with responsive Grid and Flexbox
+- Vanilla JavaScript for navigation, scroll reveals, and accessibility behavior
+- Font Awesome and Devicon for interface icons
+- No build step, server, API key, or runtime dependency required
 
-1. **Create a new repository** on GitHub named `RiduanAziz.github.io` (or a name of your choice).
-2. **Upload these files** to the `main` branch of your repository:
-   - `index.html`
-   - `style.css`
-   - `script.js`
-   - `README.md`
-   - *(Optional)* A formal studio headshot image to replace the placeholder icon in the hero section.
-3. **Go to Settings > Pages** in your GitHub repository.
-4. Under **Build and deployment**, select **Source: Deploy from a branch**.
-5. Select the `main` branch and `/root` folder, then click **Save**.
-6. Wait a few minutes. Your site will be published at `https://RiduanAziz.github.io/` (or the respective repository path).
+## Run locally
 
-## Updating the Hero Image (Headshot)
-To add your professional headshot:
-1. Place your image (e.g., `profile.jpg`) in the same folder.
-2. In `index.html`, find the `<div class="hero-image-placeholder">` block.
-3. Replace the placeholder div with: 
-   `<img src="profile.jpg" alt="Riduan Aziz Headshot" style="width: 300px; height: 300px; object-fit: cover; border-radius: 12px; border: 2px solid var(--accent);">`
+Open `index.html` directly in a browser, or serve the repository with any static server:
 
-## Built With
-* Semantic HTML5
-* CSS3 (Flexbox/Grid, Variables)
-* Vanilla JavaScript
-* FontAwesome & Devicon Icons
+```bash
+python3 -m http.server 8000
+```
+
+Then visit `http://localhost:8000`.
+
+## Deploy on GitHub Pages
+
+This repository is configured for GitHub Pages deployment from the `main` branch. In GitHub, open **Settings > Pages**, choose **Deploy from a branch**, select `main` and the repository root, then save.
+
+The live site is intended for:
+
+```text
+https://RiduanAziz.github.io/
+```
+
+## Content notes
+
+The portfolio distinguishes completed software projects, research-oriented work, concepts, and currently learning technologies. Project links point to GitHub, and no unverified metrics, employment claims, publications, or model performance scores are presented.
+
+To add a real headshot, replace the `.portrait-panel` placeholder in `index.html` with an optimized image and descriptive `alt` text.
