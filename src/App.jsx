@@ -55,7 +55,7 @@ export default function App() {
       {/* Navbar */}
       <nav className="fixed w-full z-50 top-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="#" className="font-bold text-xl tracking-tight">RA.</a>
+          <a href="#" className="font-bold text-xl tracking-tight">Riduan Aziz</a>
           
           <div className="hidden md:flex items-center gap-6 text-sm font-medium">
             {navLinks.map(link => (

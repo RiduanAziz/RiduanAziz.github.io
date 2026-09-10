@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Professional engineering portfolio for Alimul Fazal Nabil, focused on business value through cloud, DevOps, AI, data, robotics, and leadership."
+    />
+    <title>Alimul Fazal Nabil | Business-Driven Engineering Portfolio</title>
+    <style>
+      :root {
+        --bg: #07111f;
+        --surface: #101c2f;
+        --surface-2: #16263d;
+        --text: #f5f7fb;
+        --muted: #9eb0c7;
+        --accent: #4f8cff;
+        --accent-2: #6ee7f9;
+        --border: rgba(255, 255, 255, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+        line-height: 1.6;
+        background: linear-gradient(135deg, #07111f 0%, #0d1b2e 100%);
+        color: var(--text);
+      }
+
+      a {
+        color: var(--accent-2);
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(16px);
+        background: rgba(7, 17, 31, 0.85);
+        border-bottom: 1px solid var(--border);
+      }
+
+      nav {
+        min-height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .brand {
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text);
+      }
+
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 0.95rem;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .nav-more {
+        position: relative;
+      }
+
+      .nav-more summary {
+        list-style: none;
+        cursor: pointer;
+        color: var(--muted);
+      }
+
+      .nav-more summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .nav-more[open] summary,
+      .nav-more summary:hover {
+        color: var(--text);
+      }
+
+      .nav-more-menu {
+        position: absolute;
+        top: 1.45rem;
+        right: 0;
+        min-width: 220px;
+        display: grid;
+        gap: 0.45rem;
+        padding: 0.65rem;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: rgba(7, 17, 31, 0.97);
+      }
+
+      .nav-more-menu a {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .nav-more-menu a:hover {
+        color: var(--text);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 1.2rem;
+        border-radius: 999px;
+        font-weight: 600;
+        transition: transform 180ms ease, background 180ms ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #03111f;
+      }
+
+      .btn-secondary {
+        border: 1px solid var(--border);
+        color: var(--text);
+      }
+
+      section {
+        padding: 5rem 0;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 2rem;
+        align-items: center;
+        padding-top: 4rem;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 1rem;
+        color: var(--accent-2);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 0.78rem;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.12;
+        margin: 0 0 1rem;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 4vw, 3.8rem);
+      }
+
+      h2 {
+        font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      }
+
+      .hero p {
+        font-size: 1.05rem;
+        color: var(--muted);
+        max-width: 700px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .impact-strip {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.85rem;
+        margin-top: 1rem;
+      }
+
+      .impact-chip {
+        padding: 0.85rem 1rem;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--border);
+      }
+
+      .impact-chip strong {
+        display: block;
+        margin-bottom: 0.25rem;
+        color: var(--accent-2);
+      }
+
+      .stat-card,
+      .card,
+      .timeline-item,
+      .project-card,
+      .contact-card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+      }
+
+      .stat-card {
+        padding: 1rem;
+      }
+
+      .stat-card strong {
+        display: block;
+        font-size: 1.35rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .repo-chip-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        margin-top: 0.95rem;
+      }
+
+      .repo-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.52rem 0.78rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--border);
+        color: var(--text);
+        font-size: 0.88rem;
+        font-weight: 600;
+      }
+
+      .repo-chip.primary {
+        background: linear-gradient(135deg, var(--accent-blue), var(--accent-2));
+        color: #03111f;
+        border-color: transparent;
+      }
+      .card {
+        padding: 1.4rem;
+      }
+
+      .domain-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.1rem;
+        margin-top: 2rem;
+      }
+
+      .domain-grid .card h3 {
+        margin-bottom: 0.45rem;
+      }
+
+      .domain-grid .card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .section-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .section-heading p {
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .about-grid,
+      .projects-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1.3fr 0.7fr;
+      }
+
+      .value-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .value-card {
+        padding: 1.25rem;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+      }
+
+      .value-card strong {
+        display: block;
+        margin-bottom: 0.45rem;
+        color: var(--accent-2);
+      }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: 1rem;
+      }
+
+      .pill {
+        padding: 0.45rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(79, 140, 255, 0.14);
+        color: var(--accent-2);
+        font-size: 0.9rem;
+      }
+
+      .profile-photo-card {
+        overflow: hidden;
+      }
+
+      .profile-photo-wrap {
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .profile-photo {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .profile-photo-note {
+        margin-top: 0.55rem;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .timeline-item {
+        padding: 1.25rem 1.3rem;
+      }
+
+      .timeline-item .meta {
+        color: var(--accent-2);
+        font-size: 0.92rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .timeline-item ul {
+        padding-left: 1.15rem;
+        color: var(--muted);
+        margin: 0.7rem 0 0;
+      }
+
+      .expertise-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .expertise-grid .card ul {
+        padding-left: 1.1rem;
+        color: var(--muted);
+        margin: 0.7rem 0 0;
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-note {
+        max-width: 760px;
+        margin: 0.5rem auto 1.5rem;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .project-photo-card {
+        overflow: hidden;
+        padding: 0;
+      }
+
+      .project-photo-card.featured {
+        border: 1px solid rgba(110, 231, 249, 0.3);
+        box-shadow: 0 18px 42px rgba(79, 140, 255, 0.18);
+      }
+
+      .project-cover {
+        min-height: 160px;
+        padding: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: var(--white);
+        background: linear-gradient(135deg, rgba(79, 140, 255, 0.95), rgba(110, 231, 249, 0.72));
+      }
+
+      .project-cover.alt {
+        background: linear-gradient(135deg, rgba(22, 38, 61, 0.95), rgba(79, 140, 255, 0.72));
+      }
+
+      .project-cover.green {
+        background: linear-gradient(135deg, rgba(46, 182, 125, 0.95), rgba(110, 231, 249, 0.68));
+      }
+
+      .project-cover.gold {
+        background: linear-gradient(135deg, rgba(236, 178, 46, 0.95), rgba(79, 140, 255, 0.65));
+      }
+
+      .project-cover strong {
+        font-size: 1.4rem;
+        line-height: 1.1;
+      }
+
+      .project-cover small {
+        display: block;
+        margin-top: 0.45rem;
+        font-size: 0.92rem;
+        opacity: 0.9;
+        max-width: 26rem;
+      }
+
+      .project-cover span {
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.9;
+      }
+
+      .project-cover em {
+        font-style: normal;
+        opacity: 0.88;
+        font-size: 0.95rem;
+      }
+
+      .project-card-body {
+        padding: 1.2rem 1.3rem 1.35rem;
+      }
+
+      .feature-stack {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.65rem;
+        margin-top: 0.9rem;
+      }
+
+      .feature-stack .metric {
+        margin: 0;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.65rem 0.9rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        color: var(--text);
+        font-weight: 600;
+        font-size: 0.92rem;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .project-link.primary {
+        background: linear-gradient(135deg, var(--accent-blue), var(--accent-2));
+        color: #03111f;
+        border-color: transparent;
+      }
+
+      .featured-project {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .featured-panel {
+        padding: 1.4rem;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+      }
+
+      .metric-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+
+      .metric {
+        padding: 0.9rem;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--border);
+      }
+
+      .metric strong {
+        display: block;
+        margin-bottom: 0.25rem;
+        color: var(--accent-2);
+      }
+
+      .feature-list {
+        margin: 0.9rem 0 0;
+        padding-left: 1.15rem;
+        color: var(--muted);
+      }
+
+      .arch-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+
+      .arch-step {
+        padding: 0.95rem;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--border);
+      }
+
+      .arch-step strong {
+        display: block;
+        margin-bottom: 0.3rem;
+        color: var(--accent-2);
+      }
+
+      .project-card {
+        padding: 1.3rem;
+      }
+
+      .project-card .tag {
+        color: var(--accent-2);
+        font-size: 0.85rem;
+        margin-bottom: 0.4rem;
+        display: block;
+      }
+
+      .leadership-grid,
+      .cert-grid,
+      .contact-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .leadership-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cert-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stack-hierarchy {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.75rem;
+        margin: 1rem 0 1.4rem;
+      }
+
+      .stack-step {
+        padding: 0.9rem;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .stack-step strong {
+        display: block;
+        color: var(--accent-2);
+        margin-bottom: 0.2rem;
+      }
+
+      .stack-matrix {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.75rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .stack-matrix .metric {
+        padding: 0.8rem;
+      }
+
+      .stack-matrix .metric span {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .stack-domain-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .stack-domain details {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 0.85rem 0.95rem;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .stack-domain summary {
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      .stack-domain ul {
+        margin: 0.75rem 0 0;
+        padding-left: 1.15rem;
+        color: var(--muted);
+      }
+
+      .proficiency-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin: 0.8rem 0 1.2rem;
+      }
+
+      .proficiency-pill {
+        padding: 0.42rem 0.72rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        font-size: 0.84rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+      }
+
+      .proficiency-pill.production {
+        background: rgba(46, 182, 125, 0.18);
+        color: #99f0c8;
+      }
+
+      .proficiency-pill.hands-on {
+        background: rgba(79, 140, 255, 0.2);
+        color: #b7d0ff;
+      }
+
+      .proficiency-pill.focus {
+        background: rgba(236, 178, 46, 0.2);
+        color: #ffe0a3;
+      }
+
+      .recommendation-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .recommendation-card {
+        padding: 1.2rem;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .recommendation-card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .recommendation-meta {
+        display: block;
+        margin-top: 0.7rem;
+        color: var(--accent-2);
+        font-size: 0.86rem;
+      }
+
+      .recommendation-list details {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 0.9rem 1rem;
+      }
+
+      .recommendation-list summary {
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      .recommendation-list ul {
+        margin: 0.85rem 0 0;
+        padding-left: 1.15rem;
+        color: var(--muted);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .service-card {
+        padding: 1.2rem;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .service-card .service-number {
+        color: var(--accent-2);
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .service-card h3 {
+        margin: 0.35rem 0 0.5rem;
+        font-size: 1.15rem;
+      }
+
+      .service-card ul {
+        margin: 0.8rem 0 0;
+        padding-left: 1.15rem;
+        color: var(--muted);
+      }
+
+      .service-tech {
+        margin-top: 0.75rem;
+        font-size: 0.88rem;
+        color: var(--accent-2);
+      }
+
+      .service-flow,
+      .service-proof,
+      .service-cta {
+        margin-top: 1rem;
+        padding: 1.1rem 1.2rem;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.75rem;
+        margin-top: 0.8rem;
+      }
+
+      .process-step {
+        padding: 0.8rem;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .process-step strong {
+        display: block;
+        color: var(--accent-2);
+        margin-bottom: 0.2rem;
+      }
+
+      .proof-kpis {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.75rem;
+        margin-top: 0.8rem;
+      }
+
+      .proof-kpi {
+        padding: 0.85rem;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .proof-kpi strong {
+        display: block;
+        color: var(--accent-2);
+        margin-bottom: 0.22rem;
+      }
+
+      .service-cta-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        margin-top: 0.85rem;
+      }
+
+      .service-cta-note {
+        margin-top: 0.7rem;
+        color: var(--muted);
+      }
+
+      form {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.8rem 0.95rem;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+      }
+
+      textarea {
+        min-height: 110px;
+        resize: vertical;
+      }
+
+      footer {
+        padding: 2.4rem 0 2.6rem;
+        color: var(--muted);
+        border-top: 1px solid rgba(110, 231, 249, 0.22);
+        background:
+          radial-gradient(1200px 420px at 100% 0%, rgba(79, 140, 255, 0.13), transparent 55%),
+          rgba(255, 255, 255, 0.02);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 1.1rem;
+        align-items: start;
+      }
+
+      .footer-panel {
+        padding: 1.1rem 1.2rem;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .footer-brand {
+        margin: 0;
+        color: var(--text);
+        font-size: 1.12rem;
+        font-weight: 700;
+      }
+
+      .footer-role {
+        margin: 0.25rem 0 0.6rem;
+      }
+
+      .footer-value {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .footer-meta {
+        margin-top: 0.8rem;
+        font-size: 0.88rem;
+      }
+
+      .footer-kpis {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.85rem;
+      }
+
+      .footer-kpis span {
+        padding: 0.36rem 0.62rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        color: var(--accent-2);
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .footer-panel h4 {
+        margin: 0 0 0.5rem;
+        color: var(--text);
+        font-size: 0.96rem;
+      }
+
+      .footer-panel p {
+        margin: 0;
+      }
+
+      .footer-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: 0.9rem;
+      }
+
+      .footer-link-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 0.55rem;
+        margin-top: 1rem;
+      }
+
+      .footer-link-list a {
+        padding: 0.42rem 0.75rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        color: var(--text);
+        font-size: 0.88rem;
+        font-weight: 600;
+      }
+
+      .footer-link-list a:hover {
+        border-color: rgba(110, 231, 249, 0.6);
+        color: var(--accent-2);
+      }
+
+      .footer-cta {
+        padding: 0.56rem 0.86rem;
+        border-radius: 10px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        border: 1px solid var(--border);
+      }
+
+      .footer-cta.primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #03111f;
+        border-color: transparent;
+      }
+
+      .footer-cta.secondary {
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .about-grid,
+        .contact-grid,
+        .projects-grid,
+        .featured-project,
+        .expertise-grid,
+        .leadership-grid,
+        .cert-grid,
+        .domain-grid,
+        .stack-hierarchy,
+        .stack-matrix,
+        .stack-domain-grid,
+        .recommendation-grid,
+        .services-grid,
+        .process-grid,
+        .proof-kpis {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-link-list {
+          justify-content: flex-start;
+        }
+      }
+
+      @media (max-width: 640px) {
+        section {
+          padding: 3.5rem 0;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .impact-strip {
+          grid-template-columns: 1fr;
+        }
+
+        .value-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <a class="brand" href="#home">Alimul Fazal Nabil</a>
+          <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#services">Services</a>
+            <a href="#leadership">Leadership</a>
+            <a href="#publications">Publications</a>
+            <details class="nav-more">
+              <summary>More</summary>
+              <div class="nav-more-menu">
+                <a href="#stack">Tech Stack</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#volunteering">Volunteering</a>
+                <a href="#recommendations">Recommendations</a>
+                <a href="#languages">Languages</a>
+              </div>
+            </details>
+            <a href="#contact">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="container hero">
+        <div>
+          <span class="eyebrow">Senior Technology Leader</span>
+          <h1>I design, automate, and deliver technology solutions that improve reliability, accelerate execution, and create business value.</h1>
+          <p>
+            I bridge cloud, DevOps, AI, data, robotics, and product delivery to turn complex business and technical challenges into dependable systems and measurable outcomes.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">Explore My Work</a>
+            <a class="btn btn-secondary" href="#contact">Download CV</a>
+          </div>
+          <div class="stats">
+            <div class="stat-card">
+              <strong>Operational Reliability</strong>
+              <span>Systems designed to keep services stable and support continuity</span>
+            </div>
+            <div class="stat-card">
+              <strong>Automation-First Delivery</strong>
+              <span>Workflows that reduce repetition and improve execution speed</span>
+            </div>
+            <div class="stat-card">
+              <strong>Cross-Functional Scope</strong>
+              <span>Cloud, DevOps, AI, data, robotics, and product thinking</span>
+            </div>
+            <div class="stat-card">
+              <strong>Business Alignment</strong>
+              <span>Solutions tied to cost, speed, quality, and growth outcomes</span>
+            </div>
+          </div>
+          <div class="impact-strip">
+            <div class="impact-chip">
+              <strong>Faster Delivery</strong>
+              <span>Automation and repeatable workflows that shorten release cycles.</span>
+            </div>
+            <div class="impact-chip">
+              <strong>Lower Friction</strong>
+              <span>Systems and assistants that remove manual steps and wasted effort.</span>
+            </div>
+            <div class="impact-chip">
+              <strong>Better Decisions</strong>
+              <span>Data, AI, and dashboards that make operations easier to act on.</span>
+            </div>
+            <div class="impact-chip">
+              <strong>Business Alignment</strong>
+              <span>Architecture and delivery tied to outcomes, not just features.</span>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>How I Create Value</h3>
+          <div class="domain-grid" style="grid-template-columns: 1fr; margin-top: 1rem;">
+            <div class="card">
+              <h3>Cloud & Infrastructure</h3>
+              <p>Stable platforms that improve uptime, security, and scalability.</p>
+            </div>
+            <div class="card">
+              <h3>DevOps & Platform</h3>
+              <p>Automation and delivery pipelines that reduce risk and speed up releases.</p>
+            </div>
+            <div class="card">
+              <h3>AI & Data</h3>
+              <p>Insights and intelligent systems that support better decisions.</p>
+            </div>
+            <div class="card">
+              <h3>Robotics & IoT</h3>
+              <p>Connected systems that extend engineering into real-world environments.</p>
+            </div>
+            <div class="card">
+              <h3>Digital Products</h3>
+              <p>Practical product delivery that turns ideas into usable solutions.</p>
+            </div>
+            <div class="card">
+              <h3>Leadership</h3>
+              <p>Clear technical direction that keeps teams aligned and moving forward.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="value" class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Value</span>
+            <h2>Why I add value to a company</h2>
+          </div>
+        </div>
+        <div class="value-grid">
+          <div class="value-card">
+            <strong>1. I improve operational reliability</strong>
+            <p>I build stable systems, automate repeatable work, and reduce friction in day-to-day operations.</p>
+          </div>
+          <div class="value-card">
+            <strong>2. I connect technology to outcomes</strong>
+            <p>I focus on delivery that improves speed, quality, and business continuity rather than shipping features in isolation.</p>
+          </div>
+          <div class="value-card">
+            <strong>3. I bridge execution and strategy</strong>
+            <p>I can move between infrastructure, product, AI, and leadership conversations without losing business context.</p>
+          </div>
+          <div class="value-card">
+            <strong>4. I make teams more effective</strong>
+            <p>I use automation, clear architecture, and pragmatic decision-making to help teams deliver with less waste.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">About</span>
+            <h2>Engineering with business context, operational discipline, and measurable delivery focus.</h2>
+          </div>
+        </div>
+        <div class="about-grid">
+          <div class="card">
+            <h3>Professional Summary</h3>
+            <p>
+              I approach technology as a business enabler. My work focuses on building systems that are reliable, scalable, secure, automated, and directly useful to the organization.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Business value</span>
+              <span class="pill">Architecture</span>
+              <span class="pill">Automation</span>
+              <span class="pill">Delivery</span>
+            </div>
+          </div>
+          <div class="card profile-photo-card">
+            <div class="profile-photo-wrap">
+              <img
+                class="profile-photo"
+                src="https://ui-avatars.com/api/?name=Alimul+Fazal+Nabil&size=900&background=0d1b2e&color=6ee7f9&bold=true"
+                alt="Alimul Fazal Nabil profile photo"
+                loading="lazy"
+              />
+            </div>
+            <p class="profile-photo-note">Add your direct image URL or local image path here to replace the current profile placeholder.</p>
+            <h3>Engineering Philosophy</h3>
+            <p>
+              Requirements → Architecture → Implementation → Automation → Testing → Deployment → Monitoring → Continuous Improvement.
+            </p>
+            <p>
+              This mindset keeps the focus on quality, resilience, and business impact from planning through delivery and operations.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Experience</span>
+            <h2>Experience that shows engineering, leadership, and delivery across cloud, AI, and applied technology.</h2>
+          </div>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card">
+            <span class="tag">2026 • Present</span>
+            <h3>AI & ML Instructor</h3>
+            <p>ReDI School of Digital Integration · Part-time · Berlin, Germany · Remote</p>
+            <ul class="feature-list">
+              <li>Teaches practical machine learning and AI concepts with an applied, learner-focused approach.</li>
+              <li>Supports skill development in AI, data thinking, and project-based problem solving.</li>
+            </ul>
+          </article>
+          <article class="project-card">
+            <span class="tag">2026 • Present</span>
+            <h3>Chief Technology Officer and Co-founder</h3>
+            <p>MoviSabio · Self-employed</p>
+            <ul class="feature-list">
+              <li>Leads the product and technical direction for a territorial intelligence platform.</li>
+              <li>Connects AI, cloud, data, and robotics work into one market-facing solution.</li>
+            </ul>
+          </article>
+          <article class="project-card">
+            <span class="tag">2023 • Present</span>
+            <h3>Infrastructure & Cloud Systems Engineer</h3>
+            <p>Energy Crown Bangladesh · Full-time · Cox's Bazar District, Chattogram, Bangladesh · Hybrid</p>
+            <ul class="feature-list">
+              <li>Operated Azure hybrid cloud with 99.9% uptime and secure production support.</li>
+              <li>Automated provisioning with Terraform and Ansible, improving efficiency by 45%.</li>
+              <li>Built CI/CD pipelines, reduced alert noise by 30%, and supported <30-minute MTTR.</li>
+            </ul>
+          </article>
+          <article class="project-card">
+            <span class="tag">2022 • 2022</span>
+            <h3>Graduate Student Researcher</h3>
+            <p>Cox’s Bazar International University · Part-time · Remote</p>
+            <ul class="feature-list">
+              <li>Conducted applied research across robotics, mechatronics, and related engineering topics.</li>
+              <li>Published research work and contributed to technical documentation and academic outputs.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="volunteering" class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Volunteering</span>
+            <h2>Community service experience that reflects leadership, coordination, and social impact.</h2>
+          </div>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card">
+            <span class="tag">Jan 2021 – Feb 2021</span>
+            <h3>Field Supervisor</h3>
+            <p>World Food Programme · Disaster and Humanitarian Relief</p>
+            <ul class="feature-list">
+              <li>Volunteered during the 2021 fire breakout emergency supporting Rohingya communities.</li>
+              <li>Helped distribute food and assisted emergency relief coordination activities.</li>
+            </ul>
+          </article>
+          <article class="project-card">
+            <span class="tag">Jan 2020 – Dec 2025</span>
+            <h3>Blood Donor and Collector</h3>
+            <p>Cox's Bazar Blood Donor Society · Health</p>
+            <ul class="feature-list">
+              <li>Supported blood donation drives and community coordination for urgent medical needs.</li>
+              <li>Raised awareness on regular blood donations for local hospitals and patients.</li>
+            </ul>
+          </article>
+          <article class="project-card">
+            <span class="tag">Jan 2019 – May 2021</span>
+            <h3>Volunteer</h3>
+            <p>Rotary International (Rotary Cox's Bazar) · Social Services</p>
+            <ul class="feature-list">
+              <li>Contributed to health campaigns, education programs, and support for underprivileged communities.</li>
+              <li>Participated in community development initiatives with local cross-functional volunteer teams.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="expertise" class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Expertise</span>
+            <h2>A multidisciplinary engineering toolbox built to solve business and platform problems.</h2>
+          </div>
+        </div>
+        <div class="expertise-grid">
+          <div class="card">
+            <h3>Cloud & Infrastructure</h3>
+            <ul>
+              <li>Azure environments and hybrid systems</li>
+              <li>Networking, DNS, VPN, security boundaries</li>
+              <li>Windows Server, Linux, and operating model design</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>DevOps & Platform</h3>
+            <ul>
+              <li>Terraform and infrastructure as code</li>
+              <li>Docker, Kubernetes, and CI/CD pipelines</li>
+              <li>Monitoring, observability, and automation</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>AI & Data</h3>
+            <ul>
+              <li>Python, ML, and data workflows</li>
+              <li>Generative AI, RAG, and assistant systems</li>
+              <li>Computer vision and analytics-driven solutions</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Robotics & IoT</h3>
+            <ul>
+              <li>ROS 2 and embedded systems</li>
+              <li>Sensor integration and autonomous workflows</li>
+              <li>Simulation, perception, and real-world testing</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Security</h3>
+            <ul>
+              <li>Identity, RBAC, and zero-trust principles</li>
+              <li>Cloud security and monitoring</li>
+              <li>Secure architecture and operational hygiene</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Leadership & Delivery</h3>
+            <ul>
+              <li>Technical leadership and solution architecture</li>
+              <li>Stakeholder communication and delivery planning</li>
+              <li>Product-minded implementation and execution</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="stack" class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Complete Technology Stack & Skills</span>
+            <h2>A broad engineering stack for enterprise delivery, not an AI-only profile.</h2>
+          </div>
+        </div>
+        <p class="section-note">
+          Portfolio hierarchy: Cloud & Infrastructure, DevOps & Automation, AI & Machine Learning, Data Engineering & Analytics,
+          Cybersecurity & Identity, Robotics/IoT/Computer Vision, Software & Solution Architecture, and Project/Product/Technical Leadership.
+        </p>
+        <div class="proficiency-legend" aria-label="Proficiency legend">
+          <span class="proficiency-pill production">Production: delivered in real operations</span>
+          <span class="proficiency-pill hands-on">Hands-on: built and applied in projects</span>
+          <span class="proficiency-pill focus">Current Focus: actively deepening</span>
+        </div>
+        <div class="stack-hierarchy">
+          <div class="stack-step"><strong>01</strong><span>Cloud & Infrastructure</span></div>
+          <div class="stack-step"><strong>02</strong><span>DevOps & Automation</span></div>
+          <div class="stack-step"><strong>03</strong><span>AI & Machine Learning</span></div>
+          <div class="stack-step"><strong>04</strong><span>Data Engineering & Analytics</span></div>
+          <div class="stack-step"><strong>05</strong><span>Cybersecurity & Identity</span></div>
+          <div class="stack-step"><strong>06</strong><span>Robotics, IoT & Computer Vision</span></div>
+          <div class="stack-step"><strong>07</strong><span>Software & Solution Architecture</span></div>
+          <div class="stack-step"><strong>08</strong><span>Project, Product & Technical Leadership</span></div>
+        </div>
+        <div class="stack-matrix">
+          <div class="metric"><strong>Cloud</strong><span>Azure, AWS</span></div>
+          <div class="metric"><strong>Infrastructure</strong><span>Windows Server, Linux, VMware, Hyper-V</span></div>
+          <div class="metric"><strong>Networking</strong><span>TCP/IP, DNS, DHCP, VPN, VLAN, Routing, Firewalls</span></div>
+          <div class="metric"><strong>DevOps</strong><span>Terraform, Ansible, Docker, Kubernetes, Helm</span></div>
+          <div class="metric"><strong>CI/CD</strong><span>GitHub Actions, Jenkins, Azure DevOps</span></div>
+          <div class="metric"><strong>Programming</strong><span>Python, PowerShell, C++, Bash, SQL, JavaScript, TypeScript, MATLAB</span></div>
+          <div class="metric"><strong>AI/ML</strong><span>TensorFlow, PyTorch, Scikit-learn, Generative AI, LLMs</span></div>
+          <div class="metric"><strong>Computer Vision</strong><span>OpenCV, YOLO, Object Detection, Tracking</span></div>
+          <div class="metric"><strong>Data</strong><span>Pandas, NumPy, Airflow, Spark, Hadoop</span></div>
+          <div class="metric"><strong>Databases</strong><span>PostgreSQL, MySQL, SQL Server, PostGIS, Redshift</span></div>
+          <div class="metric"><strong>MLOps</strong><span>Azure ML, Docker, Kubernetes, CI/CD, Monitoring</span></div>
+          <div class="metric"><strong>GenAI</strong><span>Azure OpenAI, OpenAI API, RAG, AI Agents, Vector DB</span></div>
+          <div class="metric"><strong>Robotics</strong><span>ROS 2, C++, SLAM, LiDAR, IMU, CARLA</span></div>
+          <div class="metric"><strong>UAV</strong><span>ArduPilot, QGroundControl, GPS, IMU</span></div>
+          <div class="metric"><strong>GIS</strong><span>QGIS, ArcGIS, GeoPandas, PostGIS</span></div>
+          <div class="metric"><strong>Security</strong><span>Entra ID, RBAC, PIM, Zero Trust, Sentinel, Defender</span></div>
+          <div class="metric"><strong>Monitoring</strong><span>Azure Monitor, Prometheus, Grafana, Sentinel</span></div>
+          <div class="metric"><strong>Automation</strong><span>Python, PowerShell, Terraform, Ansible</span></div>
+          <div class="metric"><strong>Architecture</strong><span>Cloud, Hybrid, Microservices, API, Event-driven</span></div>
+          <div class="metric"><strong>Product & Leadership</strong><span>MVP, Roadmaps, Project Management, Technical Leadership, Strategy</span></div>
+        </div>
+        <div class="stack-domain-grid">
+          <div class="stack-domain">
+            <details>
+              <summary>1. Cloud Computing & Cloud Architecture (Production)</summary>
+              <ul>
+                <li>Azure: Virtual Machines, VNet, Load Balancer, Storage, App Services, Entra ID, RBAC, PIM, Monitor, Sentinel, Key Vault, Data Factory, Synapse, ML, AI Services, OpenAI, Container Apps, AKS, DevOps, Functions.</li>
+                <li>AWS: EC2, S3, Lambda, SageMaker, Redshift, networking fundamentals, cloud architecture.</li>
+                <li>Architecture: Hybrid/Public Cloud, IaaS, PaaS, SaaS, migration, high availability, scalability, disaster recovery, business continuity, security, FinOps.</li>
+              </ul>
+            </details>
+          </div>
+          <div class="stack-domain">
+            <details>
+              <summary>2. Infrastructure Engineering (Production)</summary>
+              <ul>
+                <li>Systems Administration: Windows Server, Linux, Ubuntu, CentOS, Active Directory, Entra ID, Group Policy, DNS, DHCP, virtualization, Hyper-V, VMware.</li>
+                <li>Enterprise Infrastructure: Server deployment, monitoring, backup, disaster recovery, patching, capacity planning, performance optimization, incident/problem/change operations.</li>
+                <li>Service Management: IT Support L1/L2/L3, SLA management, troubleshooting, end-user support, documentation.</li>
+              </ul>
+            </details>
+          </div>
+          <div class="stack-domain">
+            <details>
+              <summary>3. Networking (Production)</summary>
+              <ul>
+                <li>Network Technologies: TCP/IP, IPv4/IPv6, DNS, DHCP, VLAN, routing, switching, NAT, VPN, firewall, load balancing, RADIUS, NAC, monitoring.</li>
+                <li>Cloud Networking: Azure VNet, subnets, NSG, VPN Gateway, VNet peering, hub-and-spoke, private endpoints, hybrid connectivity.</li>
+                <li>Architecture: Enterprise, hybrid, and cloud network design with zero-trust patterns.</li>
+              </ul>
+            </details>
+          </div>
+          <div class="stack-domain">
+            <details>
+              <summary>4. DevOps & Platform Engineering (Production)</summary>
+              <ul>
+                <li>IaC: Terraform, ARM Templates, Bicep, Ansible.</li>
+                <li>CI/CD: GitHub Actions, Azure DevOps, Jenkins, Azure Pipelines, automated testing/build/release/deployment.</li>
+                <li>Containers and Platform: Docker, Kubernetes, AKS, Helm, developer platforms, provisioning, configuration, reliability.</li>
+              </ul>
+            </details>
+          </div>
+          <div class="stack-domain">
+            <details>
+              <summary>5. Programming & Scripting (Production + Hands-on)</summary>
+              <ul>
+                <li>Python: OOP, automation, APIs, data processing, ML, ETL, infrastructure automation.</li>
+                <li>PowerShell: Windows/Azure automation, AD automation, infrastructure management, reporting, scheduled tasks.</li>
+                <li>C/C++ and Other: C++17, robotics programming, computer vision, embedded systems, ROS 2, plus Bash, SQL, JavaScript, TypeScript, MATLAB.</li>
+              </ul>
+            </details>
+          </div>
+          <div class="stack-domain">
+            <details>
+              <summary>6. AI, ML & Generative AI (Hands-on + Current Focus)</summary>
+              <ul>
+                <li>ML and Deep Learning: supervised/unsupervised learning, classification, regression, clustering, feature engineering, model evaluation, forecasting, CNN/RNN/LSTM/GRU.</li>
+                <li>Frameworks: TensorFlow, PyTorch, Scikit-learn, Keras, NumPy, Pandas.</li>
+                <li>AI Engineering: Generative AI, LLMs, AI automation/copilots, prompt engineering, Azure OpenAI, OpenAI API, model deployment, MLOps, pipelines, monitoring.</li>
+                <li>Current Focus: RAG, AI Agents, Agentic AI, Vector Databases, LangChain, LangGraph, LangSmith, Knowledge Graphs, Multi-Agent Systems, MCP, Composio, LLMOps.</li>
+              </ul>
+            </details>
+          </div>
+          <div class="stack-domain">
+            <details>
+              <summary>7. Computer Vision, Robotics & UAV (Hands-on)</summary>
+              <ul>
+                <li>Computer Vision: OpenCV, YOLO, YOLOv8, object detection/tracking, image classification/processing, lane and traffic analysis, real-time video analytics.</li>
+                <li>Robotics: ROS 2 nodes/topics/services/actions, navigation, sensor integration, LiDAR, IMU, GPS, SLAM, sensor fusion, autonomous navigation, path planning, CARLA, Gazebo.</li>
+                <li>UAV: Drone development, ArduPilot, QGroundControl, mission planning, autonomous flight, mapping, geospatial data, UAV computer vision.</li>
+              </ul>
+            </details>
+          </div>
+          <div class="stack-domain">
+            <details>
+              <summary>8. Data, Databases, GIS & Geospatial (Production + Hands-on)</summary>
+              <ul>
+                <li>Data Science and Analytics: statistical analysis, data cleaning, EDA, predictive modeling, KPI and dashboard work with Matplotlib, Seaborn, Power BI, Tableau, Plotly.</li>
+                <li>Data Engineering: ETL/ELT, data pipelines, Airflow, transformation, quality, warehousing, lakes, PostgreSQL, MySQL, Redshift, Synapse, Spark, Hadoop.</li>
+                <li>Databases and GIS: SQL Server, PostGIS, QGIS, ArcGIS, GeoPandas, spatial databases, mapping, location intelligence, vector DB, knowledge graphs.</li>
+              </ul>
+            </details>
+          </div>
+          <div class="stack-domain">
+            <details>
+              <summary>9. Security, Identity, Monitoring & Automation (Production)</summary>
+              <ul>
+                <li>Identity and Security: Entra ID/Azure AD, RBAC, PIM, IAM, conditional access, MFA, identity governance, zero trust, Defender, Sentinel, secure cloud architecture.</li>
+                <li>Observability: Azure Monitor, Log Analytics, Prometheus, Grafana, alerting, incident detection, performance monitoring.</li>
+                <li>Automation: Infrastructure and IT automation with Terraform, Ansible, PowerShell, Python, Bash including provisioning, reporting, backup, and incident workflows.</li>
+              </ul>
+            </details>
+          </div>
+          <div class="stack-domain">
+            <details>
+              <summary>10. Software, Architecture, Product & Enterprise Leadership (Production)</summary>
+              <ul>
+                <li>Software and API Development: REST APIs, FastAPI, Flask, React, TypeScript, JavaScript, Node.js fundamentals, microservices, JWT, OAuth 2.0.</li>
+                <li>Architecture: solution, cloud, hybrid, microservices, distributed systems, event-driven, security, integration, and data architecture.</li>
+                <li>Product and Delivery: project planning, MVP development, requirements, roadmaps, risk and stakeholder management, vendor coordination, business-technology alignment.</li>
+                <li>Enterprise IT and Microsoft 365: IT operations/governance, modernization, transformation, Teams, SharePoint, Exchange Online, Intune, Power Automate, Power Apps.</li>
+                <li>Industry Focus: smart cities, intelligent transportation, automotive/ADAS, IoT, energy technology, geospatial systems, AI-powered enterprise platforms.</li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Projects</span>
+            <h2>Selected GitHub projects that show how I deliver value.</h2>
+          </div>
+        </div>
+        <p class="section-note">Short, visual snapshots of the most relevant projects. The flagship MoviSabio card groups the repositories that best demonstrate your AI, cloud, data, and robotics skillset.</p>
+        <div class="projects-grid">
+          <article class="project-card project-photo-card featured">
+            <div class="project-cover">
+              <span>01 • Flagship</span>
+              <strong>MoviSabio</strong>
+              <em>Territorial Intelligence Platform</em>
+              <small>One flagship story that connects the AI, cloud, data, and robotics work behind MoviSabio.</small>
+            </div>
+            <div class="project-card-body">
+              <span class="tag">AI / Cloud / Data / Robotics</span>
+              <p>A flagship ecosystem that combines the most relevant repositories and shows how I turn data, automation, and intelligent systems into practical value.</p>
+              <div class="feature-stack">
+                <div class="metric"><strong>Computer Vision</strong><span>Detection and tracking</span></div>
+                <div class="metric"><strong>YOLO</strong><span>Real-time object recognition</span></div>
+                <div class="metric"><strong>Azure Cloud</strong><span>Platform delivery</span></div>
+                <div class="metric"><strong>Data / Python</strong><span>Pipelines and logic</span></div>
+              </div>
+              <div class="repo-chip-grid">
+                <a class="repo-chip primary" href="https://github.com/alimulfazalnabil/Computer-Vision-Projects" target="_blank" rel="noopener noreferrer">Computer Vision</a>
+                <a class="repo-chip" href="https://github.com/alimulfazalnabil/YOLO_Projects" target="_blank" rel="noopener noreferrer">YOLO</a>
+                <a class="repo-chip" href="https://github.com/alimulfazalnabil/Azure-Cloud-Projects" target="_blank" rel="noopener noreferrer">Azure Cloud</a>
+                <a class="repo-chip" href="https://github.com/alimulfazalnabil/API-projects-" target="_blank" rel="noopener noreferrer">API</a>
+                <a class="repo-chip" href="https://github.com/alimulfazalnabil/Data-Engineering-Projects" target="_blank" rel="noopener noreferrer">Data Engineering</a>
+                <a class="repo-chip" href="https://github.com/alimulfazalnabil/Robotics-projects" target="_blank" rel="noopener noreferrer">Robotics</a>
+                <a class="repo-chip" href="https://github.com/alimulfazalnabil/Python-Projects" target="_blank" rel="noopener noreferrer">Python</a>
+                <a class="repo-chip" href="https://github.com/alimulfazalnabil/Doctors-CoPilot-Ai" target="_blank" rel="noopener noreferrer">Doctor’s Copilot</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card project-photo-card">
+            <div class="project-cover alt">
+              <span>02 • Automation</span>
+              <strong>Automation & Python</strong>
+              <em>Workflow Tools</em>
+            </div>
+            <div class="project-card-body">
+              <span class="tag">Automation / Python / Productivity</span>
+              <p>Practical Python automation tools for file handling, reporting, monitoring, and everyday workflow efficiency.</p>
+              <div class="repo-chip-grid">
+                <a class="repo-chip primary" href="https://github.com/alimulfazalnabil/Automation-Projects" target="_blank" rel="noopener noreferrer">Automation Projects</a>
+                <a class="repo-chip" href="https://github.com/alimulfazalnabil/Python-Projects" target="_blank" rel="noopener noreferrer">Python Projects</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card project-photo-card">
+            <div class="project-cover green">
+              <span>03 • Cloud</span>
+              <strong>Azure & API Systems</strong>
+              <em>Infrastructure & Services</em>
+            </div>
+            <div class="project-card-body">
+              <span class="tag">Azure / APIs / Cloud Delivery</span>
+              <p>Cloud projects covering platform delivery, infrastructure, service integration, and AI-enabled systems.</p>
+              <div class="repo-chip-grid">
+                <a class="repo-chip primary" href="https://github.com/alimulfazalnabil/Azure-Cloud-Projects" target="_blank" rel="noopener noreferrer">Azure Cloud</a>
+                <a class="repo-chip" href="https://github.com/alimulfazalnabil/API-projects-" target="_blank" rel="noopener noreferrer">API Projects</a>
+                <a class="repo-chip" href="https://github.com/alimulfazalnabil/Doctors-CoPilot-Ai" target="_blank" rel="noopener noreferrer">Doctor’s Copilot</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card project-photo-card">
+            <div class="project-cover gold">
+              <span>04 • Data & Robotics</span>
+              <strong>Data, IoT & Robotics</strong>
+              <em>Engineering Workflows</em>
+            </div>
+            <div class="project-card-body">
+              <span class="tag">Data Engineering / IoT / Robotics</span>
+              <p>Projects spanning data pipelines, IoT systems, and robotics experimentation from beginner to advanced.</p>
+              <div class="repo-chip-grid">
+                <a class="repo-chip primary" href="https://github.com/alimulfazalnabil/Data-Engineering-Projects" target="_blank" rel="noopener noreferrer">Data Engineering</a>
+                <a class="repo-chip" href="https://github.com/alimulfazalnabil/IoT-Projects" target="_blank" rel="noopener noreferrer">IoT Projects</a>
+                <a class="repo-chip" href="https://github.com/alimulfazalnabil/Robotics-projects" target="_blank" rel="noopener noreferrer">Robotics</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="services" class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Services</span>
+            <h2>From Strategy to Production</h2>
+          </div>
+        </div>
+        <p class="section-note">I help organizations design, build, automate, and modernize technology solutions across cloud infrastructure, software, AI, data, DevOps, and robotics.</p>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="service-number">01</span>
+            <h3>Cloud & Infrastructure</h3>
+            <p>Design and modernize reliable, secure, and scalable IT infrastructure.</p>
+            <ul>
+              <li>Azure cloud architecture, hybrid infrastructure, migration</li>
+              <li>Identity and access management, network architecture, security</li>
+              <li>Monitoring, observability, disaster recovery, optimization</li>
+            </ul>
+            <p class="service-tech">Technologies: Azure · AWS · Windows Server · Linux · Entra ID · Networking · Azure Monitor</p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">02</span>
+            <h3>DevOps & Infrastructure Automation</h3>
+            <p>Automate infrastructure and software delivery to improve reliability and reduce operational effort.</p>
+            <ul>
+              <li>Infrastructure as code and cloud/server automation</li>
+              <li>CI/CD pipelines, deployment automation, configuration management</li>
+              <li>Kubernetes infrastructure and observability</li>
+            </ul>
+            <p class="service-tech">Technologies: Terraform · Ansible · PowerShell · Python · Docker · Kubernetes · GitHub Actions · Jenkins · Azure DevOps</p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">03</span>
+            <h3>Full-Stack Development</h3>
+            <p>Build complete web applications from user interface to API, database, and cloud deployment.</p>
+            <ul>
+              <li>Frontend: React, Next.js, TypeScript, responsive UI, admin dashboards</li>
+              <li>Backend: Python/FastAPI/Flask, Node.js, REST APIs, auth, microservices</li>
+              <li>Delivery model: Idea → UI/UX → Frontend → Backend → Database → Testing → CI/CD → Cloud</li>
+            </ul>
+            <p class="service-tech">Technologies: PostgreSQL · MySQL · SQL Server · MongoDB · Redis · Docker · Kubernetes · Azure · AWS</p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">04</span>
+            <h3>AI & Intelligent Solutions</h3>
+            <p>Integrate AI into practical business workflows and digital products.</p>
+            <ul>
+              <li>Generative AI, LLM integration, RAG applications, assistants and agents</li>
+              <li>Computer vision and machine learning solutions</li>
+              <li>AI proof of concepts and MLOps pathways</li>
+            </ul>
+            <p class="service-tech">Technologies: Python · OpenAI API · Azure OpenAI · LangChain · LangGraph · TensorFlow · PyTorch · Scikit-learn · OpenCV · YOLO</p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">05</span>
+            <h3>Data Engineering & Analytics</h3>
+            <p>Turn operational data into reliable pipelines, insights, and decision-support systems.</p>
+            <ul>
+              <li>ETL/ELT pipelines, warehousing, analytics engineering</li>
+              <li>Data cleaning, BI, dashboard development, predictive analytics</li>
+              <li>Decision support workflows for operational teams</li>
+            </ul>
+            <p class="service-tech">Technologies: Python · SQL · Pandas · NumPy · Airflow · PostgreSQL · PostGIS · Spark · Power BI · Tableau</p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">06</span>
+            <h3>Computer Vision, Robotics & IoT</h3>
+            <p>Build intelligent systems that connect software with the physical world.</p>
+            <ul>
+              <li>Computer vision, object detection/tracking, ROS 2 development</li>
+              <li>IoT and UAV/drone solutions with sensor integration</li>
+              <li>Autonomous systems and robotics simulation</li>
+            </ul>
+            <p class="service-tech">Technologies: ROS 2 · C++ · Python · OpenCV · YOLO · LiDAR · IMU · GPS · SLAM · CARLA · ArduPilot · Raspberry Pi · Arduino</p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">07</span>
+            <h3>Digital Product Development</h3>
+            <p>Turn an idea into a technically viable and deployable digital product.</p>
+            <ul>
+              <li>Ideation, feasibility, architecture, MVP planning</li>
+              <li>API and platform design, technology selection, cloud deployment</li>
+              <li>Scaling strategy and delivery governance</li>
+            </ul>
+            <p class="service-tech">Delivery approach: Idea → Discovery → Requirements → Architecture → MVP → Testing → Deployment → Monitoring → Scale</p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">08</span>
+            <h3>Technical Consulting</h3>
+            <p>Independent technical guidance for complex technology decisions.</p>
+            <ul>
+              <li>Cloud and infrastructure reviews with maturity assessment</li>
+              <li>DevOps and AI feasibility assessments</li>
+              <li>Cost optimization, migration planning, roadmaps, architecture documentation</li>
+            </ul>
+            <p class="service-tech">Outcome: clear, actionable direction with realistic implementation paths</p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">09</span>
+            <h3>Project & Technology Leadership</h3>
+            <p>Delivery ownership beyond implementation engineering.</p>
+            <ul>
+              <li>Technical project management, requirements, and solution design</li>
+              <li>Stakeholder and vendor coordination, decision-making, process improvement</li>
+              <li>Product strategy and delivery management</li>
+            </ul>
+            <p class="service-tech">Focus: align technical execution with business outcomes</p>
+          </article>
+        </div>
+
+        <div class="service-flow">
+          <h3>How I Work</h3>
+          <div class="process-grid">
+            <div class="process-step"><strong>01 — Discover</strong><span>Understand the problem, constraints, and desired outcome.</span></div>
+            <div class="process-step"><strong>02 — Design</strong><span>Define architecture, stack, implementation strategy, and roadmap.</span></div>
+            <div class="process-step"><strong>03 — Build</strong><span>Develop the solution with strong engineering and delivery practices.</span></div>
+            <div class="process-step"><strong>04 — Automate</strong><span>Automate infrastructure, testing, deployment, and operational workflows.</span></div>
+            <div class="process-step"><strong>05 — Validate</strong><span>Test functionality, security, performance, reliability, and scalability.</span></div>
+            <div class="process-step"><strong>06 — Deploy</strong><span>Release to production infrastructure or cloud platforms.</span></div>
+            <div class="process-step"><strong>07 — Improve</strong><span>Monitor, optimize, document, and continuously improve the system.</span></div>
+          </div>
+        </div>
+
+        <div class="service-proof">
+          <h3>Why Work With Me?</h3>
+          <p>Engineering across the full technology lifecycle: Infrastructure → Cloud → Software → Data → AI → Automation → Production.</p>
+          <div class="proof-kpis">
+            <div class="proof-kpi"><strong>7+ years</strong><span>professional technology experience</span></div>
+            <div class="proof-kpi"><strong>99.9%</strong><span>infrastructure availability experience</span></div>
+            <div class="proof-kpi"><strong>45%</strong><span>manual operational work reduced through automation</span></div>
+          </div>
+          <ul class="feature-list">
+            <li>Hands-on delivery across Azure, DevOps, AI, Data, Robotics, and Software Engineering.</li>
+            <li>Ability to work from concept to production and lead projects to completion.</li>
+            <li>Strong combination of engineering execution and project leadership.</li>
+          </ul>
+        </div>
+
+        <div class="service-cta">
+          <h3>Have a technology challenge?</h3>
+          <p>Whether you need to modernize infrastructure, automate operations, develop a full-stack application, integrate AI, build a data platform, or turn an idea into a working product, let’s discuss the problem and identify the right technical solution.</p>
+          <p class="service-cta-note"><strong>Email:</strong> alimul.nabil@gmail.com · <strong>WhatsApp:</strong> +8801829687813</p>
+          <div class="service-cta-actions">
+            <a class="btn btn-primary" href="#contact">Start a Conversation</a>
+            <a class="btn btn-secondary" href="https://wa.me/8801829687813" target="_blank" rel="noopener noreferrer">WhatsApp Me</a>
+            <a class="btn btn-secondary" href="mailto:alimul.nabil@gmail.com">Send an Email</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="leadership" class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Leadership</span>
+            <h2>Leadership that connects technical execution, team alignment, and business outcomes.</h2>
+          </div>
+        </div>
+        <div class="leadership-grid">
+          <div class="card">
+            <h3>Technical Direction</h3>
+            <p>I help shape solutions from idea to execution, ensuring architecture, delivery, and operations stay aligned with the company’s priorities.</p>
+          </div>
+          <div class="card">
+            <h3>Team Coordination</h3>
+            <p>I create clarity across technical and non-technical stakeholders so teams can move faster with fewer misunderstandings.</p>
+          </div>
+          <div class="card">
+            <h3>Strategic Delivery</h3>
+            <p>I evaluate feasibility, scalability, testing, and maintainability so delivery choices support long-term business value.</p>
+          </div>
+          <div class="card">
+            <h3>Product Alignment</h3>
+            <p>I connect engineering work to user value, operational impact, and product thinking rather than treating implementation as an isolated task.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="recommendations" class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Recommendations</span>
+            <h2>Peer and leadership endorsements from LinkedIn.</h2>
+          </div>
+        </div>
+        <p class="section-note">10 public recommendations highlighting cross-border strategy, cloud infrastructure delivery, and collaborative leadership.</p>
+        <div class="recommendation-grid">
+          <article class="recommendation-card">
+            <p>
+              "A forward-thinking catalyst for cross-border innovation with strategic clarity and proactive leadership across international technology ecosystems."
+            </p>
+            <span class="recommendation-meta">Douglas Amante · Entrepreneurial Diplomat · August 2026</span>
+          </article>
+          <article class="recommendation-card">
+            <p>
+              "Strong expertise in Azure cloud and infrastructure engineering with hands-on high-availability systems, Terraform, Python, PowerShell automation, and hybrid cloud delivery."
+            </p>
+            <span class="recommendation-meta">Md Fajle Rabbe · Data and Humanitarian Operations · April 2026</span>
+          </article>
+          <article class="recommendation-card">
+            <p>
+              "Productive in engineering projects, eager to explore knowledge, and actively engaged in social impact with dependable teamwork."
+            </p>
+            <span class="recommendation-meta">Sayed Bin Osman · Research and Robotics Mentor · July 2020</span>
+          </article>
+        </div>
+        <div class="recommendation-list">
+          <details>
+            <summary>View all recommendations</summary>
+            <ul>
+              <li>Douglas Amante: Recognized cross-border innovation leadership and ability to adapt high-potential technology models across Europe and LATAM markets.</li>
+              <li>Md Fajle Rabbe: Highlighted disciplined execution, real-world implementation focus, and strong cloud/infrastructure capabilities.</li>
+              <li>Anas Azmayeen Zamee: Endorsed self-driven robotics work, scratch-built projects, and practical design/controller skills.</li>
+              <li>Engr. Saeydul Amin: Noted system and network administration strength, IoT capability, and operational troubleshooting excellence.</li>
+              <li>MD Nezam: Recognized quick learning ability with professional and collaborative conduct.</li>
+              <li>Salamate Ullah: Praised data engineering fundamentals (SQL, Python, Spark, Hadoop) and strong data-driven problem solving.</li>
+              <li>Md. Asadullahil Galib: Commended critical thinking, learning commitment, leadership traits, and collaborative influence.</li>
+              <li>Abu Talha Bin Dil Chowdhury: Highlighted adaptability, communication, pressure-handling, and consistent delivery quality.</li>
+              <li>Md. Mohi Uddin: Shared professional encouragement from direct team collaboration.</li>
+              <li>Sayed Bin Osman: Endorsed productivity, technical curiosity, and active contribution to both engineering and social work.</li>
+            </ul>
+          </details>
+        </div>
+      </section>
+
+      <section id="publications" class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Publications</span>
+            <h2>Applied research and implementation-focused publications.</h2>
+          </div>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card">
+            <span class="tag">International Research Journal of Modernization in Engineering Technology and Science · Nov 23, 2022</span>
+            <h3>Implementation of IoT Based Notice Board</h3>
+            <p>IoT e-notice board architecture using connected display systems and remote admin control for near real-time communication.</p>
+            <ul class="feature-list">
+              <li>Focus areas: IoT communication, Raspberry Pi integration, remote content publishing, and operational messaging workflows.</li>
+              <li>Supported multi-format information flow such as text, image, PDF, and real-time communication concepts.</li>
+              <li>Keywords: IoT, Raspberry Pi, GSM, MIC, LCD monitor, smart notice board, advertising board.</li>
+              <li>Co-authors: collaborative publication team (+3).</li>
+            </ul>
+            <div class="project-links">
+              <a class="project-link primary" href="https://www.irjmets.com/uploadedfiles/paper/issue_11_november_2022/31134/final/fin_irjmets1668848416.pdf" target="_blank" rel="noopener noreferrer">Read Publication</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <span class="tag">International Research Journal of Engineering and Technology · Nov 11, 2022</span>
+            <h3>Implementation of Online Shopping and Auction System (SPAROO)</h3>
+            <p>Designed an application model for online shopping and live auction workflows to reduce offline friction and improve buyer-seller interaction.</p>
+            <ul class="feature-list">
+              <li>Combined product discovery, online shopping, and auction participation inside one digital experience.</li>
+              <li>Included multi-bidder live auction flow aligned with practical marketplace scenarios.</li>
+              <li>Demonstrated system thinking across user experience, transaction flow, and scalable digital operations.</li>
+              <li>Co-authors: collaborative publication team (+4).</li>
+            </ul>
+            <div class="project-links">
+              <a class="project-link primary" href="https://www.irjet.net/archives/V9/i11/IRJET-V9I1123.pdf" target="_blank" rel="noopener noreferrer">Read Publication</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="certifications" class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Certifications</span>
+            <h2>Selected certifications and professional credentials.</h2>
+          </div>
+        </div>
+        <div class="pill-row" style="margin-bottom: 1rem;">
+          <span class="pill">Micro1 Certified Infrastructure and Cloud System Engineer</span>
+          <span class="pill">AI & ML Instructor</span>
+          <span class="pill">AZ-104 / AZ-204 / AZ-305 prep</span>
+          <span class="pill">Toastmasters Public Speaking</span>
+        </div>
+        <div class="cert-grid">
+          <div class="card">
+            <h3>Cloud & Infrastructure</h3>
+            <ul class="feature-list">
+              <li>Microsoft Azure Fundamentals (AZ-900)</li>
+              <li>Azure Administrator Associate (AZ-104)</li>
+              <li>Azure Developer Associate (AZ-204)</li>
+              <li>Azure Solutions Architect Expert (AZ-305) prep</li>
+              <li>Cloud Architecture: Design Decisions</li>
+              <li>Cloud Management with Microsoft Intune</li>
+              <li>Windows Server, Active Directory, DHCP, DNS, VMware, Linux</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>AI, Data & Automation</h3>
+            <ul class="feature-list">
+              <li>Microsoft Azure AI Engineer Associate (AI-102) prep</li>
+              <li>Microsoft Azure Machine Learning Fundamentals</li>
+              <li>AI for Project Management: Managing Risk with Generative AI</li>
+              <li>Generative AI for Marketing with Microsoft 365 Copilot</li>
+              <li>Introduction to Data Engineering</li>
+              <li>edX Data Analysis: Basic Probability and Statistics</li>
+              <li>HackerRank Python, SQL, and Problem Solving basics</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>DevOps & Platform</h3>
+            <ul class="feature-list">
+              <li>Build a CI/CD Pipeline</li>
+              <li>Next-Generation Network Automation</li>
+              <li>PowerShell automation for Windows Server administration</li>
+              <li>Linux security, hardening, and system administration</li>
+              <li>Docker / Kubernetes foundations</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Communication & Leadership</h3>
+            <ul class="feature-list">
+              <li>Communicating with Confidence</li>
+              <li>Public Speaking Foundations</li>
+              <li>Writing and Delivering Speeches</li>
+              <li>Body Language for Leaders and Managers</li>
+              <li>Public Speaking Skills Professional Certificate by Toastmasters International</li>
+              <li>Tech Career Skills: Effective Technical Communication</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Specialized Credentials</h3>
+            <ul class="feature-list">
+              <li>FAA Part 107 Commercial Drone License prep</li>
+              <li>Working with Clients (British Council, B2)</li>
+              <li>Rock Your LinkedIn Profile</li>
+              <li>Generative AI for Digital Marketers</li>
+              <li>Microsoft 365 Copilot and prompt-writing courses</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Research & Foundations</h3>
+            <ul class="feature-list">
+              <li>Python 3 Programming Specialization</li>
+              <li>Python Project for Data Engineering</li>
+              <li>Introduction to Containers with Docker / Kubernetes / OpenShift</li>
+              <li>Research publications and applied engineering work</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Education</span>
+            <h2>Academic foundation in computer engineering and science.</h2>
+          </div>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card">
+            <span class="tag">2017 – 2021</span>
+            <h3>Cox's Bazar International University</h3>
+            <p>Bachelor's degree in Computer Engineering.</p>
+            <ul class="feature-list">
+              <li>Grade: 3.505 / 4.00</li>
+              <li>Received full funding for strong academic performance.</li>
+              <li>Founding member of the CBIU CSE Alumni Association.</li>
+              <li>Relevant coursework: Algorithms, Networks, Machine Learning, Cloud Computing, AI, and Software Engineering.</li>
+            </ul>
+          </article>
+          <article class="project-card">
+            <span class="tag">2013 – 2014</span>
+            <h3>Cox's Bazar Government College</h3>
+            <p>Higher Secondary School Certificate (HSC), Science.</p>
+            <ul class="feature-list">
+              <li>Grade: 78.4%</li>
+            </ul>
+          </article>
+          <article class="project-card">
+            <span class="tag">2011 – 2012</span>
+            <h3>Cox's Bazar Model High School</h3>
+            <p>Secondary School Certificate (SSC), Science.</p>
+            <ul class="feature-list">
+              <li>Grade: 93.80%</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="languages" class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Languages</span>
+            <h2>Multilingual communication across technical and international environments.</h2>
+          </div>
+        </div>
+        <div class="pill-row" style="margin-bottom: 1rem;">
+          <span class="pill">Native/Bilingual: 2</span>
+          <span class="pill">Professional Working: 2</span>
+          <span class="pill">Limited Working: 2</span>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card">
+            <span class="tag">Native or bilingual proficiency</span>
+            <h3>Bangla</h3>
+            <p>Primary language for daily communication, collaboration, and documentation context.</p>
+          </article>
+          <article class="project-card">
+            <span class="tag">Native or bilingual proficiency</span>
+            <h3>Indo-Aryan Language</h3>
+            <p>Native-level communication ability in Indo-Aryan language contexts.</p>
+          </article>
+          <article class="project-card">
+            <span class="tag">Professional working proficiency</span>
+            <h3>English</h3>
+            <p>Professional communication for engineering work, documentation, and cross-functional collaboration.</p>
+            <ul class="feature-list">
+              <li>Duolingo English Test Score: 130 (Feb 2026)</li>
+            </ul>
+          </article>
+          <article class="project-card">
+            <span class="tag">Professional working proficiency</span>
+            <h3>German</h3>
+            <p>Professional-level communication for workplace collaboration and technical coordination.</p>
+          </article>
+          <article class="project-card">
+            <span class="tag">Limited working proficiency</span>
+            <h3>Arabic</h3>
+            <p>Functional communication ability for basic professional and social interactions.</p>
+          </article>
+          <article class="project-card">
+            <span class="tag">Limited working proficiency</span>
+            <h3>Hindi</h3>
+            <p>Basic working capability for conversation and contextual collaboration.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Contact</span>
+            <h2>Let’s discuss how I can add value to your team and business.</h2>
+          </div>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card card">
+            <h3>Value I Bring</h3>
+            <p>Cloud engineering, AI solutions, DevOps, data engineering, robotics, technical leadership, and consulting that improve outcomes.</p>
+            <div class="pill-row">
+              <span class="pill">LinkedIn</span>
+              <span class="pill">GitHub</span>
+              <span class="pill">Email</span>
+            </div>
+          </div>
+          <div class="contact-card card">
+            <form>
+              <input type="text" placeholder="Name" />
+              <input type="email" placeholder="Email" />
+              <input type="text" placeholder="Company" />
+              <textarea placeholder="Message"></textarea>
+              <a class="btn btn-primary" href="mailto:alimul.nabil@gmail.com">Send Message</a>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-panel">
+            <p class="footer-brand">Alimul Fazal Nabil</p>
+            <p class="footer-role">Senior Technology Leader · Cloud, DevOps, AI, Data, Robotics</p>
+            <p class="footer-value">Building reliable platforms, automation-first operations, and intelligent systems aligned with business outcomes.</p>
+            <div class="footer-kpis">
+              <span>Cloud + Platform</span>
+              <span>AI + Data</span>
+              <span>Leadership + Delivery</span>
+            </div>
+            <p class="footer-meta">© <span id="year"></span> Alimul Fazal Nabil. All rights reserved.</p>
+          </div>
+          <div class="footer-panel">
+            <h4>Let’s Build Something Valuable</h4>
+            <p>Open to infrastructure, platform engineering, and AI-enabled product opportunities.</p>
+            <div class="footer-actions">
+              <a class="footer-cta primary" href="#contact">Start a Conversation</a>
+              <a class="footer-cta secondary" href="mailto:alimul.nabil@gmail.com">Email Directly</a>
+            </div>
+            <div class="footer-link-list">
+              <a href="#about">About</a>
+              <a href="#projects">Projects</a>
+              <a href="#publications">Publications</a>
+              <a href="https://github.com/alimulfazalnabil" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://www.linkedin.com/in/alimul-fazal-nabil/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Recruiter-first section flow requested by the portfolio owner.
+      const sectionOrder = [
+        "about",
+        "expertise",
+        "experience",
+        "projects",
+        "services",
+        "leadership",
+        "publications",
+        "stack",
+        "certifications",
+        "volunteering",
+        "recommendations",
+        "languages",
+        "education",
+        "value",
+        "contact"
+      ];
+
+      const main = document.getElementById("home");
+      const sections = Array.from(main.querySelectorAll("section[id]"));
+      const byId = new Map(sections.map((section) => [section.id, section]));
+
+      for (const id of sectionOrder) {
+        const section = byId.get(id);
+        if (section) {
+          main.appendChild(section);
+          byId.delete(id);
+        }
+      }
+
+      // Keep any future sections that are not listed above.
+      for (const section of byId.values()) {
+        main.appendChild(section);
+      }
+    </script>
+  </body>
+</html>
