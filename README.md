@@ -35,3 +35,7 @@ https://RiduanAziz.github.io/
 The portfolio distinguishes completed software projects, research-oriented work, concepts, and currently learning technologies. Project links point to GitHub, and no unverified metrics, employment claims, publications, or model performance scores are presented.
 
 To add a real headshot, replace the `.portrait-panel` placeholder in `index.html` with an optimized image and descriptive `alt` text.
+
+## Resume
+
+The Resume button points to `assets/Riduan-Aziz-CV.pdf`. Add the final CV at that path when it is ready; the portfolio intentionally does not include a fabricated resume file.
