@@ -19,6 +19,28 @@ document.addEventListener("DOMContentLoaded", () => {
     const revealElements = document.querySelectorAll('.reveal-up, .reveal-left');
     revealElements.forEach(el => revealObserver.observe(el));
 
+    // Accessible mobile navigation
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const closeMenu = () => {
+        navLinks.classList.remove('is-open');
+        hamburger.classList.remove('is-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Open navigation menu');
+    };
+
+    hamburger.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('is-open');
+        hamburger.classList.toggle('is-open', isOpen);
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+        hamburger.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeMenu();
+    });
+
 
     // 2. Magnetic Button Effect (Premium UI Interaction)
     const magneticButtons = document.querySelectorAll('.magnetic');
@@ -44,11 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.style.padding = "0.8rem 2rem";
-            navbar.style.background = "rgba(10, 10, 10, 0.85)";
+            navbar.classList.add('is-scrolled');
         } else {
-            navbar.style.padding = "1rem 2rem";
-            navbar.style.background = "rgba(15, 15, 15, 0.7)";
+            navbar.classList.remove('is-scrolled');
         }
     });
 

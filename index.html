@@ -2,9 +2,12 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Riduan Aziz - AI/ML Engineer & Data Science Professional">
-    <title>Riduan Aziz | Premium UI Portfolio</title>
+    <meta property="og:title" content="Riduan Aziz | AI/ML & Data Science Portfolio">
+    <meta property="og:description" content="AI/ML, data science, and software engineering portfolio of Riduan Aziz.">
+    <meta property="og:type" content="website">
+    <title>Riduan Aziz | AI/ML & Data Science</title>
     
     <!-- Premium Typography: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,17 +25,17 @@
 
     <nav id="navbar" class="glass-nav">
         <div class="nav-content">
-            <a href="#home" class="nav-logo">RA<span>.</span></a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
+            <a href="#home" class="nav-logo" aria-label="Riduan Aziz home">RA<span>.</span></a>
+            <ul class="nav-links" id="primary-navigation">
+                <li><a href="#expertise">Profile</a></li>
                 <li><a href="#expertise">Expertise</a></li>
                 <li><a href="#projects">Work</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="hamburger">
+            <button class="hamburger" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu">
                 <div class="line1"></div>
                 <div class="line2"></div>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -49,7 +52,7 @@
                     
                     <div class="hero-actions">
                         <a href="#projects" class="btn btn-primary magnetic">Explore Projects</a>
-                        <a href="https://github.com/RiduanAziz" target="_blank" class="btn btn-glass magnetic"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://github.com/RiduanAziz" target="_blank" rel="noopener noreferrer" class="btn btn-glass magnetic"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
                 
@@ -140,7 +143,7 @@
                         <div class="tech-stack-mini">
                             <span>Python</span><span>Whisper</span><span>LoRA</span><span>Speech Processing</span>
                         </div>
-                        <a href="https://github.com/RiduanAziz" class="btn-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://github.com/RiduanAziz" target="_blank" rel="noopener noreferrer" class="btn-link">View on GitHub <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                     <div class="project-visual glass-card">
                         <i class="fas fa-waveform-lines ui-icon"></i>
@@ -156,7 +159,7 @@
                         <div class="tech-stack-mini">
                             <span>Android</span><span>Java</span><span>Firebase Firestore</span>
                         </div>
-                        <a href="https://github.com/RiduanAziz" class="btn-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://github.com/RiduanAziz" target="_blank" rel="noopener noreferrer" class="btn-link">View on GitHub <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                     <div class="project-visual glass-card">
                         <i class="fas fa-building ui-icon"></i>
@@ -172,7 +175,7 @@
                         <div class="tech-stack-mini">
                             <span>PyTorch</span><span>MediaPipe</span><span>OpenCV</span>
                         </div>
-                        <a href="https://github.com/RiduanAziz" class="btn-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://github.com/RiduanAziz" target="_blank" rel="noopener noreferrer" class="btn-link">View on GitHub <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                     <div class="project-visual glass-card">
                         <i class="fas fa-hands-asl-interpreting ui-icon"></i>
