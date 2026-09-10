@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useReducedMotion, useScroll } from 'framer-mot
 import { 
   Mail, ExternalLink, Moon, Sun,
   Menu, X, ChevronRight, FileText, Code, Database, BrainCircuit, User, ArrowUp,
-  Copy, Check, Search, Send, Sparkles, Filter
+  Copy, Check, Search, Send, Sparkles, Filter, Download, ZoomIn, ZoomOut
 } from 'lucide-react';
 import { FaGithub, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 import { 
@@ -41,7 +41,16 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [contactForm, setContactForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [formSent, setFormSent] = useState(false);
+  const [resumeModalOpen, setResumeModalOpen] = useState(false);
+  const [cvZoom, setCvZoom] = useState(100);
+  const [cvViewMode, setCvViewMode] = useState('doc'); // 'doc' or 'pdf'
 
+  const resumeUrl = `${import.meta.env.BASE_URL}assets/CV of Riduan Aziz.pdf`;
+  const cvPages = [
+    `${import.meta.env.BASE_URL}assets/cv-page-1.png`,
+    `${import.meta.env.BASE_URL}assets/cv-page-2.png`,
+    `${import.meta.env.BASE_URL}assets/cv-page-3.png`
+  ];
   const { scrollYProgress } = useScroll();
   const reduceMotion = useReducedMotion();
 
@@ -49,6 +58,22 @@ export default function App() {
     if (darkMode) document.documentElement.classList.add('dark');
     else document.documentElement.classList.remove('dark');
   }, [darkMode]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setResumeModalOpen(false);
+    };
+    if (resumeModalOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [resumeModalOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -174,14 +199,12 @@ export default function App() {
                 </a>
               );
             })}
-            <a 
-              href="/assets/CV%20of%20Riduan%20Aziz.pdf" 
-              target="_blank" 
-              rel="noreferrer" 
-              className="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition border border-slate-200/60 dark:border-slate-700/60"
+            <button 
+              onClick={() => setResumeModalOpen(true)}
+              className="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition border border-slate-200/60 dark:border-slate-700/60 font-medium text-sm text-slate-800 dark:text-slate-100"
             >
               <FileText size={16}/> Resume
-            </a>
+            </button>
             <button 
               onClick={() => setDarkMode(!darkMode)} 
               className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:ring-2 ring-accent/50 transition"
@@ -230,14 +253,12 @@ export default function App() {
                 })}
               </div>
               <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                <a 
-                  href="/assets/CV%20of%20Riduan%20Aziz.pdf" 
-                  target="_blank" 
-                  rel="noreferrer" 
+                <button 
+                  onClick={() => { setMenuOpen(false); setResumeModalOpen(true); }}
                   className="flex items-center gap-2 text-sm font-medium py-2 px-3 rounded-md bg-slate-100 dark:bg-slate-800"
                 >
                   <FileText size={16}/> View Resume
-                </a>
+                </button>
                 <button 
                   onClick={() => setDarkMode(!darkMode)} 
                   className="flex items-center gap-2 text-sm font-medium py-2 px-3 rounded-md bg-slate-100 dark:bg-slate-800"
@@ -286,6 +307,12 @@ export default function App() {
               <a href="#projects" className="orange-gradient-button electric-border bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-6 py-3 rounded-md font-medium transition">
                 Explore My Work
               </a>
+              <button 
+                onClick={() => setResumeModalOpen(true)}
+                className="electric-border flex items-center gap-2 border border-slate-300 dark:border-slate-700 px-5 py-3 rounded-md font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-800 dark:text-slate-200"
+              >
+                <FileText size={18} className="text-accent" /> Resume
+              </button>
               <a href={professionalInfo.contacts.github} target="_blank" rel="noreferrer" className="electric-border flex items-center gap-2 border border-slate-300 dark:border-slate-700 px-5 py-3 rounded-md font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition">
                 <FaGithub size={18} aria-hidden="true" /> GitHub
               </a>
@@ -864,6 +891,153 @@ export default function App() {
           <p className="text-xs text-slate-400">© {new Date().getFullYear()} Riduan Aziz. All rights reserved.</p>
         </div>
       </footer>
+
+      {/* Interactive Resume Viewer Modal */}
+      <AnimatePresence>
+        {resumeModalOpen && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/80 backdrop-blur-md">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
+              className="relative w-full max-w-5xl h-[90vh] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden"
+            >
+              {/* Modal Header */}
+              <div className="px-5 py-3 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50/90 dark:bg-slate-800/90 backdrop-blur-sm shrink-0">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-accent/10 text-accent">
+                    <FileText size={20} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 dark:text-white text-sm sm:text-base">
+                      Curriculum Vitae — Riduan Aziz
+                    </h3>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                      3 Pages • Computer Science & Applied AI
+                    </p>
+                  </div>
+                </div>
+
+                {/* Header Controls */}
+                <div className="flex items-center gap-2">
+                  {/* View Mode Toggle */}
+                  <div className="hidden md:flex items-center p-1 bg-slate-200/60 dark:bg-slate-700/60 rounded-lg text-xs font-medium">
+                    <button
+                      onClick={() => setCvViewMode('doc')}
+                      className={`px-2.5 py-1 rounded-md transition ${cvViewMode === 'doc' ? 'bg-white dark:bg-slate-900 text-accent font-semibold shadow-sm' : 'text-slate-600 dark:text-slate-300'}`}
+                    >
+                      Document
+                    </button>
+                    <button
+                      onClick={() => setCvViewMode('pdf')}
+                      className={`px-2.5 py-1 rounded-md transition ${cvViewMode === 'pdf' ? 'bg-white dark:bg-slate-900 text-accent font-semibold shadow-sm' : 'text-slate-600 dark:text-slate-300'}`}
+                    >
+                      Browser PDF
+                    </button>
+                  </div>
+
+                  {/* Zoom Controls */}
+                  {cvViewMode === 'doc' && (
+                    <div className="hidden sm:flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-lg border border-slate-200 dark:border-slate-700 text-xs">
+                      <button 
+                        onClick={() => setCvZoom(Math.max(60, cvZoom - 15))}
+                        className="p-1 hover:text-accent transition"
+                        title="Zoom out"
+                      >
+                        <ZoomOut size={14} />
+                      </button>
+                      <span className="w-10 text-center text-[11px] font-mono">{cvZoom}%</span>
+                      <button 
+                        onClick={() => setCvZoom(Math.min(150, cvZoom + 15))}
+                        className="p-1 hover:text-accent transition"
+                        title="Zoom in"
+                      >
+                        <ZoomIn size={14} />
+                      </button>
+                    </div>
+                  )}
+
+                  <a
+                    href={resumeUrl}
+                    download="CV of Riduan Aziz.pdf"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-accent text-white hover:bg-accent-hover transition shadow-sm"
+                  >
+                    <Download size={13} />
+                    <span>Download PDF</span>
+                  </a>
+
+                  <a
+                    href={resumeUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 transition"
+                  >
+                    <span>New Tab</span>
+                    <ExternalLink size={12} />
+                  </a>
+
+                  <button
+                    onClick={() => setResumeModalOpen(false)}
+                    className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition ml-1"
+                    aria-label="Close resume preview"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+              </div>
+
+              {/* Modal Body */}
+              <div className="flex-1 w-full bg-slate-100 dark:bg-slate-950 relative overflow-y-auto p-4 sm:p-6 flex flex-col items-center">
+                {cvViewMode === 'doc' ? (
+                  <div className="flex flex-col items-center gap-6 w-full" style={{ maxWidth: `${Math.min(100, Math.max(60, cvZoom)) * 8.5}px` }}>
+                    {cvPages.map((pageImg, idx) => (
+                      <div key={idx} className="w-full flex flex-col items-center group">
+                        <div className="w-full flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-2 px-1">
+                          <span className="font-semibold text-accent">Page {idx + 1} of {cvPages.length}</span>
+                          <span className="text-[10px] opacity-75">CV of Riduan Aziz</span>
+                        </div>
+                        <img
+                          src={pageImg}
+                          alt={`CV of Riduan Aziz - Page ${idx + 1}`}
+                          className="w-full rounded-lg shadow-2xl border border-slate-200 dark:border-slate-800 bg-white"
+                          loading={idx === 0 ? "eager" : "lazy"}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <iframe
+                    src={`${resumeUrl}#toolbar=1&navpanes=0`}
+                    title="CV of Riduan Aziz"
+                    className="w-full h-full border-0 bg-white rounded-lg shadow-xl"
+                  />
+                )}
+              </div>
+
+              {/* Modal Footer */}
+              <div className="px-5 py-2.5 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 flex items-center justify-between text-xs text-slate-500 shrink-0">
+                <span className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <span>Verified Document — 3 Pages</span>
+                </span>
+                <div className="flex items-center gap-4">
+                  <a href={resumeUrl} download="CV of Riduan Aziz.pdf" className="text-accent font-semibold flex items-center gap-1 hover:underline">
+                    <Download size={13} />
+                    <span>Download Original PDF</span>
+                  </a>
+                  <button 
+                    onClick={() => setResumeModalOpen(false)} 
+                    className="hover:text-slate-900 dark:hover:text-white transition"
+                  >
+                    Close (Esc)
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
