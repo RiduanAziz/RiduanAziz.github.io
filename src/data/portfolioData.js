@@ -1,7 +1,7 @@
 export const professionalInfo = {
   name: "Riduan Aziz",
-  headline: "Software Engineer | Data & AI/ML Enthusiast",
-  subheadline: "Building software, data-driven solutions, and intelligent applications that solve practical problems.",
+  headline: "CSE Undergrad @ CBIU | Data Science Enthusiast | Aspiring AI Engineer | Software Developer",
+  subheadline: "Computer Science and Engineering undergraduate building practical software, data-driven solutions, and intelligent applications while developing toward a career in AI engineering.",
   about: `Riduan Aziz is a Computer Science and Engineering professional with experience spanning data management, field data collection, reporting, database-related work, software development, analytics, and emerging AI/ML technologies. His background combines practical experience in data-driven humanitarian operations with technical development in Python, databases, application development, and machine learning. He is particularly interested in building technology that transforms data into useful information, intelligent systems, and practical software solutions.`,
   contacts: {
     email: "riduan.aziz46@gmail.com",
@@ -11,7 +11,7 @@ export const professionalInfo = {
 };
 
 export const metrics = [
-  { label: "CGPA", value: "3.782 / 4.00", sub: "CSE Bachelor's Degree" },
+  { label: "CGPA", value: "3.795 / 4.00", sub: "CSE Bachelor's Degree" },
   { label: "Primary Focus", value: "AI + Data + Software", sub: "Bridging disciplines" },
   { label: "Professional Experience", value: "3+ Roles", sub: "Data & Info Management" }
 ];
@@ -118,7 +118,7 @@ export const concepts = [
 ];
 
 export const education = [
-  { degree: "B.Sc. in Computer Science and Engineering", institution: "Cox's Bazar International University (CBIU)", details: "CGPA: 3.782 / 4.00 | Expected Graduation: Sept 2026 | Completed 7th Semester" },
+  { degree: "B.Sc. in Computer Science and Engineering", institution: "Cox's Bazar International University (CBIU)", details: "CGPA: 3.795 / 4.00 | Expected Graduation: Sept 2026 | Completed 152/160 Credits" },
   { degree: "Higher Secondary Certificate (Science)", institution: "Cox's Bazar Government College", details: "GPA: 3.42 / 5.00 | 2018" },
   { degree: "Secondary School Certificate (Science)", institution: "Ukhiya Government High School", details: "GPA: 5.00 / 5.00 | 2016" }
 ];
