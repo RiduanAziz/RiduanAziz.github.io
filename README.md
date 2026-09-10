@@ -12,17 +12,23 @@ Professional GitHub Pages portfolio for Riduan Aziz, a Computer Science & Engine
 
 ## Run locally
 
-Open `index.html` directly in a browser, or serve the repository with any static server:
+Install dependencies and start the Vite development server:
 
 ```bash
-python3 -m http.server 8000
+npm install
+npm run dev
 ```
 
-Then visit `http://localhost:8000`.
+For a production preview:
+
+```bash
+npm run build
+npm run preview
+```
 
 ## Deploy on GitHub Pages
 
-This repository is configured for GitHub Pages deployment from the `main` branch. In GitHub, open **Settings > Pages**, choose **Deploy from a branch**, select `main` and the repository root, then save.
+This repository uses the Vite build workflow at `.github/workflows/deploy.yml`. Pushes to `main` install dependencies, build `dist`, and deploy the result through GitHub Pages. In GitHub, set Pages to **GitHub Actions** under **Settings > Pages**.
 
 The live site is intended for:
 
@@ -34,8 +40,12 @@ https://RiduanAziz.github.io/
 
 The portfolio distinguishes completed software projects, research-oriented work, concepts, and currently learning technologies. Project links point to GitHub, and no unverified metrics, employment claims, publications, or model performance scores are presented.
 
-To add a real headshot, replace the `.portrait-panel` placeholder in `index.html` with an optimized image and descriptive `alt` text.
+To add a real headshot, replace the portrait placeholder in `src/App.jsx` with an optimized image and descriptive `alt` text.
 
 ## Resume
 
-The Resume button points to `assets/Riduan-Aziz-CV.pdf`. Add the final CV at that path when it is ready; the portfolio intentionally does not include a fabricated resume file.
+The Resume button points to `public/assets/CV of Riduan Aziz.pdf`. Replace that file with the final CV when needed, or update the link in `src/App.jsx`.
+
+## Updating content
+
+Portfolio content is organized in `src/data/portfolioData.js`. Update the structured objects for professional information, experience, skills, projects, concepts, education, and certifications. The reusable page structure lives in `src/App.jsx`.

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Github, Linkedin, Mail, ExternalLink, Moon, Sun, 
+  Mail, ExternalLink, Moon, Sun,
   Menu, X, ChevronRight, FileText, Code, Database, BrainCircuit
 } from 'lucide-react';
 import { 
@@ -49,7 +49,7 @@ export default function App() {
             {navLinks.map(link => (
               <a key={link} href={`#${link.toLowerCase()}`} className="hover:text-accent transition-colors">{link}</a>
             ))}
-            <a href="/assets/Riduan-Aziz-CV.pdf" target="_blank" className="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+            <a href="/assets/CV%20of%20Riduan%20Aziz.pdf" target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition">
               <FileText size={16}/> Resume
             </a>
             <button onClick={() => setDarkMode(!darkMode)} className="p-2 rounded-full bg-slate-100 dark:bg-slate-800">
@@ -98,7 +98,7 @@ export default function App() {
                 Explore My Work
               </a>
               <a href={professionalInfo.contacts.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 border border-slate-300 dark:border-slate-700 px-6 py-3 rounded-md font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition">
-                <Github size={18} /> GitHub
+                <ExternalLink size={18} /> GitHub
               </a>
               <a href="#contact" className="px-6 py-3 font-medium hover:text-accent transition">
                 Contact Me
@@ -242,7 +242,7 @@ export default function App() {
               </div>
               <div className="p-6 border-t border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 mt-auto">
                 <a href={project.github} target="_blank" rel="noreferrer" className="text-sm font-medium flex items-center gap-2 hover:text-accent transition">
-                  <Github size={16} /> View Repository
+                  <ExternalLink size={16} /> View Repository
                 </a>
               </div>
             </div>
@@ -318,7 +318,7 @@ export default function App() {
               <Mail size={20} /> Send Email
             </a>
             <a href={professionalInfo.contacts.linkedin} target="_blank" rel="noreferrer" className="w-full md:w-auto flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-8 py-4 rounded-md font-medium transition">
-              <Linkedin size={20} /> LinkedIn Profile
+              <ExternalLink size={20} /> LinkedIn Profile
             </a>
           </div>
         </div>
