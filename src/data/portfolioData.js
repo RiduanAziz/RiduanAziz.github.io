@@ -13,7 +13,7 @@ export const professionalInfo = {
 };
 
 export const metrics = [
-  { label: "CGPA", value: "3.795 / 4.00", sub: "CSE Bachelor's Degree" },
+  { label: "CGPA", value: "3.795 / 4.000", sub: "Bachelor of Science in Computer Science and Engineering" },
   { label: "Primary Focus", value: "AI + Data + Software", sub: "Bridging disciplines" },
   { label: "Professional Experience", value: "3+ Roles", sub: "Data & Info Management" }
 ];
@@ -150,7 +150,7 @@ export const concepts = [
 ];
 
 export const education = [
-  { degree: "B.Sc. in Computer Science and Engineering", institution: "Cox's Bazar International University (CBIU)", details: "CGPA: 3.795 / 4.00 | Expected Graduation: Sept 2026 | Completed 152 / 160 Credits" },
+  { degree: "Bachelor of Science in Computer Science and Engineering", institution: "Cox's Bazar International University (CBIU)", details: "CGPA: 3.795 / 4.000 | Completed: 152 / 160 Credits | Expected Graduation: December 2026 | Remaining: Thesis/Project and Industrial Internship" },
   { degree: "Higher Secondary Certificate (HSC)", institution: "Cox's Bazar Government College", details: "GPA: 3.42 / 5.00 | Science | 2018" },
   { degree: "Secondary School Certificate (SSC)", institution: "Ukhiya Government High School", details: "GPA: 5.00 / 5.00  | Science | 2016" }
 ];
