@@ -88,8 +88,8 @@ export const experience = [
 
 export const skills = {
   primary: ["Python", "Java", "C++", "C#", "SQL", "Machine Learning", "Data Management", "GitHub"],
-  workingKnowledge: ["PHP", "JavaScript", "Microsoft Excel", "Power BI", "Android/XML", "Firebase", "MySQL", "KoboCollect", "OpenCV", "MediaPipe"],
-  exploring: ["TensorFlow", "PyTorch", "Hugging Face", "PEFT & LoRA", "Generative AI", "FastAPI", "Docker", "AWS ML", "Google Cloud ML workflows"]
+  workingKnowledge: ["PHP", "JavaScript", "Microsoft Excel", "Power BI", "Android/XML", "Android Studio", "Firebase", "Cloud Firestore", "MySQL", "Microsoft SQL Server", "Database Management", "Data Collection & Verification", "Data Cleaning & Validation", "Data Analysis & Reporting", "Exploratory Data Analysis", "OpenCV", "MediaPipe", "KoboCollect", "Computer Vision", "Natural Language Processing", "Automatic Speech Recognition", "Sign Language Recognition"],
+  exploring: ["TensorFlow", "PyTorch", "Hugging Face", "PEFT & LoRA", "Generative AI", "Feature Engineering", "FastAPI", "Docker", "AWS ML", "Google Cloud ML workflows", "Retrieval-Augmented Generation", "Model Context Protocol", "AI Agents", "Arduino & IoT", "Visual Studio"]
 };
 
 export const projects = [
@@ -114,7 +114,7 @@ export const projects = [
     category: "AI/ML",
     description: "A research-oriented project focused on robust real-time recognition of dynamic word-level American Sign Language using computer vision and deep learning techniques.",
     tech: ["Python", "PyTorch", "TensorFlow", "MediaPipe", "Computer Vision"],
-    github: "https://github.com/RiduanAziz",
+    github: "https://github.com/RiduanAziz/Robust-Real-Time-Dynamic-Word-Level-American-Sign-Language-Recognition",
     status: "AI/ML Research Project"
   },
   {
@@ -163,6 +163,11 @@ export const education = [
     cgpa: "3.795 / 4.000",
     credits: "152 / 160",
     period: "Expected graduation: December 2026",
+    reportedSnapshots: [
+      "Earlier reported snapshot: CGPA 3.782 / 4.00 through the seventh semester.",
+      "Later reported snapshot: CGPA 3.795 / 4.00 with 152 of 162 credits completed; thesis/project and industrial internship were outstanding at that time.",
+      "These reported snapshots differ from the current 152 / 160 credit record and require verification."
+    ],
     skills: ["Python", "Java", "C++", "C#", "SQL", "Object-Oriented Programming", "Application Development", "Database Management", "Data Analysis", "Machine Learning", "Computer Vision", "Speech Recognition"],
     activities: [
       {
@@ -231,7 +236,7 @@ export const certifications = [
     type: "Computer Science Course",
     year: "2026",
     status: "Completed",
-    credentialId: null,
+    credentialId: "ee71a8a7-c8f3-423e-8d15-e0ebf1499ed9",
     credentialUrl: null,
     skills: ["C", "Python", "Data Structures", "Algorithms", "SQL", "HTML/CSS", "JavaScript", "Flask"],
     certificateFile: null
@@ -245,7 +250,21 @@ export const certifications = [
     status: "Completed",
     credentialId: null,
     credentialUrl: null,
+    reportedIssueDate: "January 2026",
+    verificationNote: "The existing record lists 2025; the supplied profile data reports January 2026. Date requires verification.",
     skills: ["Machine Learning Foundations", "AI Fundamentals"],
+    certificateFile: null
+  },
+  {
+    id: "icpc-asia-dhaka-regional-2023",
+    title: "ICPC Asia Dhaka Regional Contest — 2023",
+    issuer: "ICPC — International Collegiate Programming Contest",
+    type: "Programming Competition",
+    year: "November 2023",
+    status: "Participant",
+    credentialId: "1058195",
+    credentialUrl: null,
+    skills: ["Problem Solving", "Algorithms", "Competitive Programming"],
     certificateFile: null
   },
   {
@@ -269,6 +288,8 @@ export const certifications = [
     status: "Completed",
     credentialId: null,
     credentialUrl: null,
+    reportedIssueDate: "May 2025",
+    verificationNote: "The existing record lists 2025; the supplied profile data reports May 2025.",
     skills: ["Disaster Management"],
     certificateFile: null
   },
@@ -279,7 +300,7 @@ export const certifications = [
     type: "Excel Training / Certificate",
     year: "2022",
     status: "Completed",
-    credentialId: null,
+    credentialId: "KQEXITWV",
     credentialUrl: null,
     skills: ["Microsoft Excel", "Spreadsheet Analysis", "Data Organization"],
     certificateFile: null
@@ -303,9 +324,48 @@ export const certifications = [
     type: "Professional Training",
     year: "2021",
     status: "Completed",
-    credentialId: null,
+    credentialId: "322884",
     credentialUrl: null,
     skills: ["Graphic Design", "Visual Communication"],
     certificateFile: "/assets/certificates/ledp-graphic-design-training.pdf"
+  }
+];
+
+export const awards = [
+  {
+    id: "university-merit-scholarship",
+    title: "University Merit Scholarship",
+    organization: "Controller of the Examinations, Cox's Bazar International University",
+    date: "2026",
+    status: "Reported — verification pending",
+    description: "A merit scholarship reported in the supplied profile data. The exact award name, years, frequency, and selection details require verification."
+  },
+  {
+    id: "best-rover-scout-district-2024",
+    title: "Best Rover Scout (District) — National Education Week 2024",
+    organization: "District Administration, Cox's Bazar",
+    date: "May 2024",
+    status: "Reported — verification pending",
+    description: "Recognition reported in the supplied profile data; certificate or official confirmation is pending."
+  },
+  {
+    id: "best-rover-scout-upazila-2024",
+    title: "Best Rover Scout (Upazila) — National Education Week 2024",
+    organization: "Upazila Administration, Cox's Bazar Sadar, Cox's Bazar",
+    date: "May 2024",
+    status: "Reported — verification pending",
+    description: "Recognition reported in the supplied profile data; certificate or official confirmation is pending."
+  }
+];
+
+export const volunteering = [
+  {
+    id: "district-senior-rover-mate",
+    role: "District Senior Rover Mate Representative",
+    organization: "Bangladesh Scouts",
+    period: "July 2018 – present",
+    area: "Disaster and humanitarian relief",
+    status: "Reported — verification pending",
+    description: "Volunteer leadership experience reported in the supplied profile data. Exact current responsibilities require verification."
   }
 ];

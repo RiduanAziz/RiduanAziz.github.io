@@ -9,7 +9,7 @@ import { FaGithub, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 import { FaDiscord, FaXTwitter } from 'react-icons/fa6';
 import { 
   professionalInfo, metrics, impactHighlights, focusAreas, experience, skills,
-  projects, concepts, education, certifications 
+  projects, concepts, education, certifications, awards, volunteering
 } from './data/portfolioData';
 import TechFrame from './components/TechFrame';
 import ProfessionalPhotoFrame from './components/ProfessionalPhotoFrame';
@@ -89,7 +89,7 @@ export default function App() {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 400);
 
-      const sections = ['about', 'value', 'experience', 'skills', 'projects', 'education', 'contact'];
+      const sections = ['about', 'value', 'experience', 'skills', 'projects', 'education', 'recognition', 'contact'];
       const scrollPosition = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -155,7 +155,7 @@ export default function App() {
     return matchesCategory && matchesSearch;
   });
 
-  const navLinks = ['About', 'Value', 'Experience', 'Skills', 'Projects', 'Education', 'Contact'];
+  const navLinks = ['About', 'Value', 'Experience', 'Skills', 'Projects', 'Education', 'Recognition', 'Contact'];
 
   return (
     <div className="min-h-screen font-sans selection:bg-accent selection:text-white">
@@ -718,6 +718,43 @@ export default function App() {
                 >
                   <CredentialCard credential={cert} onViewDocument={(document, context) => setActiveDocument({ document, context })} />
                 </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section id="recognition" title="Recognition & Volunteering">
+        <div className="grid lg:grid-cols-2 gap-10">
+          <div>
+            <h3 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Honors & Awards</h3>
+            <div className="space-y-4">
+              {awards.map((award) => (
+                <article key={award.id} className="card-border-effect rounded-lg bg-white p-5 dark:bg-slate-800/50">
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <h4 className="font-bold text-slate-900 dark:text-white">{award.title}</h4>
+                    <span className="text-xs font-semibold text-accent">{award.date}</span>
+                  </div>
+                  <p className="mt-2 text-sm font-medium text-slate-600 dark:text-slate-300">{award.organization}</p>
+                  <p className="mt-3 text-sm leading-6 text-slate-500 dark:text-slate-400">{award.description}</p>
+                  <span className="mt-3 inline-flex rounded-full bg-amber-500/10 px-2.5 py-1 text-xs font-semibold text-amber-700 dark:text-amber-300">{award.status}</span>
+                </article>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Volunteer Leadership</h3>
+            <div className="space-y-4">
+              {volunteering.map((role) => (
+                <article key={role.id} className="card-border-effect rounded-lg bg-white p-5 dark:bg-slate-800/50">
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <h4 className="font-bold text-slate-900 dark:text-white">{role.role}</h4>
+                    <span className="text-xs font-semibold text-accent">{role.period}</span>
+                  </div>
+                  <p className="mt-2 text-sm font-medium text-slate-600 dark:text-slate-300">{role.organization} · {role.area}</p>
+                  <p className="mt-3 text-sm leading-6 text-slate-500 dark:text-slate-400">{role.description}</p>
+                  <span className="mt-3 inline-flex rounded-full bg-amber-500/10 px-2.5 py-1 text-xs font-semibold text-amber-700 dark:text-amber-300">{role.status}</span>
+                </article>
               ))}
             </div>
           </div>

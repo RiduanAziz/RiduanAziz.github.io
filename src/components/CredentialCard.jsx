@@ -1,11 +1,18 @@
 import { useState } from 'react';
-import { ChevronDown, Download, ExternalLink, FileBadge } from 'lucide-react';
+import { ChevronDown, Download, ExternalLink, FileBadge, Copy, Check } from 'lucide-react';
 import SkillTag from './SkillTag';
 import { assetPath } from '../utils/assets';
 
 const CredentialCard = ({ credential, onViewDocument }) => {
   const [expanded, setExpanded] = useState(false);
+  const [copiedId, setCopiedId] = useState(false);
   const file = assetPath(credential.certificateFile);
+
+  const copyCredentialId = async () => {
+    await navigator.clipboard.writeText(credential.credentialId);
+    setCopiedId(true);
+    setTimeout(() => setCopiedId(false), 1800);
+  };
 
   return (
     <article className="card-border-effect rounded-md bg-slate-50 p-4 dark:bg-slate-800/50">
@@ -23,7 +30,7 @@ const CredentialCard = ({ credential, onViewDocument }) => {
         {credential.credentialUrl && <a href={credential.credentialUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs font-semibold text-accent hover:text-accent-hover">Verify Credential <ExternalLink size={13} /></a>}
         {file && <a href={file} download className="inline-flex items-center gap-1 text-xs font-semibold text-accent hover:text-accent-hover">Download <Download size={13} /></a>}
       </div>
-      {expanded && <div className="mt-4 space-y-3 border-t border-slate-200 pt-4 text-sm dark:border-slate-700"><p className="text-slate-600 dark:text-slate-300">{credential.type}</p>{credential.credentialId && <p className="text-slate-500 dark:text-slate-400">Credential ID: <span className="font-medium text-slate-700 dark:text-slate-200">{credential.credentialId}</span></p>}{credential.skills?.length > 0 && <div className="flex flex-wrap gap-1.5">{credential.skills.map((skill) => <SkillTag key={skill}>{skill}</SkillTag>)}</div>}{!file && <p className="text-xs text-slate-500 dark:text-slate-400">Certificate preview will appear after a genuine certificate file or image is added to the credential data.</p>}</div>}
+      {expanded && <div className="mt-4 space-y-3 border-t border-slate-200 pt-4 text-sm dark:border-slate-700"><p className="text-slate-600 dark:text-slate-300">{credential.type}</p>{credential.credentialId && <div className="flex flex-wrap items-center gap-2 text-slate-500 dark:text-slate-400">Credential ID: <span className="font-medium text-slate-700 dark:text-slate-200">{credential.credentialId}</span><button type="button" onClick={copyCredentialId} className="inline-flex items-center gap-1 rounded px-1.5 py-1 text-xs font-semibold text-accent hover:bg-slate-100 dark:hover:bg-slate-700" aria-label={`Copy credential ID for ${credential.title}`}>{copiedId ? <><Check size={13} /> Copied</> : <><Copy size={13} /> Copy</>}</button></div>}{credential.reportedIssueDate && <p className="text-slate-500 dark:text-slate-400">Reported issue date: {credential.reportedIssueDate}</p>}{credential.verificationNote && <p className="rounded-md border border-amber-200 bg-amber-50 p-2 text-xs text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-200">{credential.verificationNote}</p>}{credential.skills?.length > 0 && <div className="flex flex-wrap gap-1.5">{credential.skills.map((skill) => <SkillTag key={skill}>{skill}</SkillTag>)}</div>}{!file && <p className="text-xs text-slate-500 dark:text-slate-400">Certificate preview will appear after a genuine certificate file or image is added to the credential data.</p>}</div>}
     </article>
   );
 };
