@@ -137,6 +137,8 @@ git push origin main
 2. The .github/workflows/deploy.yml workflow will automatically trigger, build the Vite application, and publish the compiled static site to GitHub Pages.
 
 3. Verify settings under Repository Settings > Pages > Source, ensuring GitHub Actions is selected as the build source.
+
+The Discord HTTPS verification file is kept at `public/.well-known/discord` and is published at `https://riduanaziz.github.io/.well-known/discord` by the same workflow.
 ---
 
 ## 📬 Contact & Links
