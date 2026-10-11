@@ -6,12 +6,16 @@ import {
   Copy, Check, Search, Send, Sparkles, Filter, Download, ZoomIn, ZoomOut
 } from 'lucide-react';
 import { FaGithub, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
+import { FaDiscord, FaXTwitter } from 'react-icons/fa6';
 import { 
   professionalInfo, metrics, impactHighlights, focusAreas, experience, skills,
   projects, concepts, education, certifications 
 } from './data/portfolioData';
 import TechFrame from './components/TechFrame';
 import ProfessionalPhotoFrame from './components/ProfessionalPhotoFrame';
+import EducationCard from './components/EducationCard';
+import CredentialCard from './components/CredentialCard';
+import DocumentViewer from './components/DocumentViewer';
 
 const Section = ({ id, title, children, className = "" }) => (
   <section id={id} className={`py-20 px-6 md:px-12 lg:px-24 ${className}`}>
@@ -44,6 +48,7 @@ export default function App() {
   const [resumeModalOpen, setResumeModalOpen] = useState(false);
   const [cvZoom, setCvZoom] = useState(100);
   const [cvViewMode, setCvViewMode] = useState('doc'); // 'doc' or 'pdf'
+  const [activeDocument, setActiveDocument] = useState(null);
 
   const resumeUrl = `${import.meta.env.BASE_URL}assets/CV of Riduan Aziz.pdf`;
   const cvPages = [
@@ -64,6 +69,7 @@ export default function App() {
       if (e.key === 'Escape' || e.keyCode === 27) {
         setResumeModalOpen(false);
       }
+
     };
     if (resumeModalOpen) {
       window.addEventListener('keydown', handleKeyDown, true);
@@ -322,6 +328,12 @@ export default function App() {
               </a>
               <a href={professionalInfo.contacts.linkedin} target="_blank" rel="noreferrer" className="electric-border flex items-center gap-2 border border-slate-300 dark:border-slate-700 px-5 py-3 rounded-md font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition">
                 <FaLinkedinIn size={18} aria-hidden="true" /> LinkedIn
+              </a>
+              <a href={professionalInfo.contacts.x} target="_blank" rel="noreferrer" className="electric-border flex items-center gap-2 border border-slate-300 dark:border-slate-700 px-5 py-3 rounded-md font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition">
+                <FaXTwitter size={18} aria-hidden="true" /> X
+              </a>
+              <a href={professionalInfo.contacts.discord} target="_blank" rel="noreferrer" className="electric-border flex items-center gap-2 border border-slate-300 dark:border-slate-700 px-5 py-3 rounded-md font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition">
+                <FaDiscord size={18} aria-hidden="true" /> Discord
               </a>
               <button 
                 onClick={copyToClipboard} 
@@ -670,15 +682,14 @@ export default function App() {
       {/* Education & Certifications */}
       <Section id="education" title="Education & Certifications">
         <div className="grid lg:grid-cols-2 gap-16">
-          {/* Education Timeline */}
           <div>
             <h3 className="text-2xl font-bold mb-8 flex items-center gap-2 text-slate-900 dark:text-white">
               Academic Background
             </h3>
             <div className="space-y-8">
               {education.map((edu, idx) => (
-                <motion.div 
-                  key={idx} 
+                <motion.div
+                  key={edu.id || edu.degree}
                   initial={{ opacity: 0, x: -16 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -686,35 +697,26 @@ export default function App() {
                   className="relative pl-6 border-l-2 border-slate-200 dark:border-slate-700"
                 >
                   <div className="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-2 ring-4 ring-white dark:ring-slate-900"></div>
-                  <h4 className="text-lg font-bold text-slate-900 dark:text-white">{edu.degree}</h4>
-                  <p className="text-accent font-medium text-sm mb-1">{edu.institution}</p>
-                  <p className="text-slate-500 text-sm">{edu.details}</p>
+                  <EducationCard education={edu} onViewDocument={(document, context) => setActiveDocument({ document, context })} />
                 </motion.div>
               ))}
             </div>
           </div>
 
-          {/* Certifications Grid */}
           <div>
-             <h3 className="text-2xl font-bold mb-8 text-slate-900 dark:text-white">
+            <h3 className="text-2xl font-bold mb-8 text-slate-900 dark:text-white">
               Certifications & Training
             </h3>
             <div className="grid gap-4">
               {certifications.map((cert, idx) => (
-                <motion.div 
-                  key={idx} 
+                <motion.div
+                  key={cert.id || cert.title}
                   initial={{ opacity: 0, x: 16 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.08 }}
-                  whileHover={{ x: 4 }}
-                  className="card-border-effect p-4 bg-slate-50 dark:bg-slate-800/50 rounded-md border border-slate-200 dark:border-slate-700 hover:shadow-sm transition-all"
                 >
-                  <h4 className="font-semibold text-sm text-slate-900 dark:text-white mb-1">{cert.title}</h4>
-                  <div className="flex justify-between text-xs text-slate-500">
-                    <span>{cert.issuer}</span>
-                    <span className="font-medium text-accent">{cert.year}</span>
-                  </div>
+                  <CredentialCard credential={cert} onViewDocument={(document, context) => setActiveDocument({ document, context })} />
                 </motion.div>
               ))}
             </div>
@@ -769,6 +771,22 @@ export default function App() {
                   className="electric-border flex items-center justify-center gap-2 bg-emerald-600/90 hover:bg-emerald-500/90 text-white px-4 py-3 rounded-lg font-medium transition border border-emerald-500/30"
                 >
                   <FaWhatsapp size={18} aria-hidden="true" /> WhatsApp
+                </a>
+                <a
+                  href={professionalInfo.contacts.x}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="electric-border flex items-center justify-center gap-2 bg-slate-800/90 hover:bg-slate-700/90 text-white px-4 py-3 rounded-lg font-medium transition border border-slate-700"
+                >
+                  <FaXTwitter size={18} aria-hidden="true" /> X
+                </a>
+                <a
+                  href={professionalInfo.contacts.discord}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="electric-border flex items-center justify-center gap-2 bg-indigo-600/90 hover:bg-indigo-500/90 text-white px-4 py-3 rounded-lg font-medium transition border border-indigo-500/30"
+                >
+                  <FaDiscord size={18} aria-hidden="true" /> Discord
                 </a>
               </div>
             </div>
@@ -884,6 +902,12 @@ export default function App() {
             <a href={professionalInfo.contacts.linkedin} target="_blank" rel="noreferrer" className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-accent transition-colors" aria-label="LinkedIn">
               <FaLinkedinIn size={18} />
             </a>
+            <a href={professionalInfo.contacts.x} target="_blank" rel="noreferrer" className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-accent transition-colors" aria-label="X">
+              <FaXTwitter size={18} />
+            </a>
+            <a href={professionalInfo.contacts.discord} target="_blank" rel="noreferrer" className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-accent transition-colors" aria-label="Discord">
+              <FaDiscord size={18} />
+            </a>
             <a href={`mailto:${professionalInfo.contacts.email}`} className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-accent transition-colors" aria-label="Email">
               <Mail size={18} />
             </a>
@@ -895,6 +919,14 @@ export default function App() {
           <p className="text-xs text-slate-400">© {new Date().getFullYear()} Riduan Aziz. All rights reserved.</p>
         </div>
       </footer>
+
+      {activeDocument && (
+        <DocumentViewer
+          document={activeDocument.document}
+          context={activeDocument.context}
+          onClose={() => setActiveDocument(null)}
+        />
+      )}
 
       {/* Interactive Resume Viewer Modal */}
       <AnimatePresence>
@@ -1075,4 +1107,3 @@ export default function App() {
     </div>
   );
 }
-

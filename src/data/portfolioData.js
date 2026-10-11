@@ -7,7 +7,9 @@ export const professionalInfo = {
     email: "riduan.aziz46@gmail.com",
     github: "https://github.com/RiduanAziz",
     linkedin: "https://linkedin.com/in/riduan-aziz",
-    whatsapp: "https://wa.me/8801849703495"
+    whatsapp: "https://wa.me/8801849703495",
+    x: "https://x.com/RiduanAziz",
+    discord: "https://discord.com/users/866606465891434496"
   },
   photo: "https://github.com/RiduanAziz.png"
 };
@@ -150,16 +152,160 @@ export const concepts = [
 ];
 
 export const education = [
-  { degree: "Bachelor of Science in Computer Science and Engineering", institution: "Cox's Bazar International University (CBIU)", details: "CGPA: 3.795 / 4.000 | Completed: 152 / 160 Credits | Expected Graduation: December 2026 | Remaining: Thesis/Project and Industrial Internship" },
-  { degree: "Higher Secondary Certificate (HSC)", institution: "Cox's Bazar Government College", details: "GPA: 3.42 / 5.00 | Science | 2018" },
-  { degree: "Secondary School Certificate (SSC)", institution: "Ukhiya Government High School", details: "GPA: 5.00 / 5.00  | Science | 2016" }
+  {
+    id: "cbiu-cse",
+    degree: "Bachelor of Science in Computer Science and Engineering",
+    institution: "Cox's Bazar International University (CBIU)",
+    department: "Computer Science and Engineering",
+    details: "CGPA: 3.795 / 4.000 | Completed: 152 / 160 Credits | Expected Graduation: December 2026 | Remaining: Thesis/Project and Industrial Internship",
+    status: "In progress",
+    description: "My academic background in Computer Science and Engineering provides a foundation for software development, programming, algorithms, database systems, information technology, and computational problem-solving. I apply this foundation through software projects, data analysis, application development, and exploration of artificial intelligence and machine learning.",
+    cgpa: "3.795 / 4.000",
+    credits: "152 / 160",
+    period: "Expected graduation: December 2026",
+    skills: ["Python", "Java", "C++", "C#", "SQL", "Object-Oriented Programming", "Application Development", "Database Management", "Data Analysis", "Machine Learning", "Computer Vision", "Speech Recognition"],
+    activities: [
+      {
+        name: "ICPC Asia Dhaka Regional Contest",
+        role: "Participant",
+        organization: "ICPC Asia Dhaka Regional Contest",
+        year: "2023"
+      }
+    ],
+    documents: [
+      {
+        id: "academic-transcript",
+        title: "Academic Transcript",
+        type: "transcript",
+        file: null,
+        expectedPath: "/assets/academic/transcript.pdf"
+      },
+      {
+        id: "degree-certificate",
+        title: "Degree Certificate",
+        type: "degree certificate",
+        file: null,
+        expectedPath: "/assets/academic/degree-certificate.pdf"
+      }
+    ]
+  },
+  {
+    id: "hsc",
+    degree: "Higher Secondary Certificate (HSC)",
+    institution: "Cox's Bazar Government College",
+    details: "GPA: 3.42 / 5.00 | Science | 2018",
+    status: "Completed",
+    period: "2018",
+    documents: [
+      {
+        id: "hsc-certificate",
+        title: "HSC Certificate",
+        type: "academic certificate",
+        file: "/assets/academic/hsc-certificate.png"
+      }
+    ]
+  },
+  {
+    id: "ssc",
+    degree: "Secondary School Certificate (SSC)",
+    institution: "Ukhiya Government High School",
+    details: "GPA: 5.00 / 5.00 | Science | 2016",
+    status: "Completed",
+    period: "2016",
+    documents: [
+      {
+        id: "ssc-certificate",
+        title: "SSC Certificate",
+        type: "academic certificate",
+        file: "/assets/academic/ssc-certificate.png"
+      }
+    ]
+  }
 ];
 
 export const certifications = [
-  { title: "Full Stack Data Science with Generative AI Bootcamp 1.0", issuer: "Inception BD", year: "Appeared (8 Months)" },
-  { title: "CS50x: CS50's Introduction to Computer Science", issuer: "Harvard University / edX", year: "2026" },
-  { title: "AWS Academy Graduate — Machine Learning Foundations", issuer: "AWS Academy", year: "2025" },
-  { title: "Course on Disaster Management", issuer: "Bangladesh Scouts", year: "2025" },
-  { title: "Microsoft Office Specialist: Excel Certification — Intermediate Level", issuer: "Great Learning", year: "2022" },
-  { title: "Professional Outsourcing Training (Graphic Design)", issuer: "ICT Division, Bangladesh", year: "2021" }
+  {
+    id: "cs50x",
+    title: "CS50x: CS50's Introduction to Computer Science",
+    issuer: "Harvard University / edX",
+    type: "Computer Science Course",
+    year: "2026",
+    status: "Completed",
+    credentialId: null,
+    credentialUrl: null,
+    skills: ["C", "Python", "Data Structures", "Algorithms", "SQL", "HTML/CSS", "JavaScript", "Flask"],
+    certificateFile: null
+  },
+  {
+    id: "aws-ml-foundations",
+    title: "AWS Academy Graduate — Machine Learning Foundations",
+    issuer: "AWS Academy",
+    type: "Technical Training / Graduate Credential",
+    year: "2025",
+    status: "Completed",
+    credentialId: null,
+    credentialUrl: null,
+    skills: ["Machine Learning Foundations", "AI Fundamentals"],
+    certificateFile: null
+  },
+  {
+    id: "full-stack-data-science",
+    title: "Full Stack Data Science with Generative AI Bootcamp 1.0",
+    issuer: "Inception BD",
+    type: "Technical Training / Bootcamp",
+    year: "8 months",
+    status: "Appeared",
+    credentialId: null,
+    credentialUrl: null,
+    skills: ["Data Science", "Python", "Generative AI"],
+    certificateFile: null
+  },
+  {
+    id: "disaster-management",
+    title: "Course on Disaster Management",
+    issuer: "Bangladesh Scouts",
+    type: "Training",
+    year: "2025",
+    status: "Completed",
+    credentialId: null,
+    credentialUrl: null,
+    skills: ["Disaster Management"],
+    certificateFile: null
+  },
+  {
+    id: "excel-intermediate",
+    title: "Microsoft Office Specialist: Excel Certification — Intermediate Level",
+    issuer: "Great Learning",
+    type: "Excel Training / Certificate",
+    year: "2022",
+    status: "Completed",
+    credentialId: null,
+    credentialUrl: null,
+    skills: ["Microsoft Excel", "Spreadsheet Analysis", "Data Organization"],
+    certificateFile: null
+  },
+  {
+    id: "excel-beginner",
+    title: "Microsoft Office Specialist: Excel Certification — Beginner Level",
+    issuer: "Great Learning",
+    type: "Excel Training / Certificate",
+    year: "2022",
+    status: "Completed",
+    credentialId: null,
+    credentialUrl: null,
+    skills: ["Microsoft Excel", "Spreadsheet Fundamentals", "Data Organization"],
+    certificateFile: null
+  },
+  {
+    id: "graphic-design-training",
+    title: "Professional Outsourcing Training (Graphic Design)",
+    issuer: "Information and Communication Technology Division, Bangladesh",
+    type: "Professional Training",
+    year: "2021",
+    status: "Completed",
+    credentialId: null,
+    credentialUrl: null,
+    skills: ["Graphic Design", "Visual Communication"],
+    certificateFile: "/assets/certificates/ledp-graphic-design-training.pdf"
+  }
 ];

@@ -141,6 +141,36 @@ git push origin main
 The Discord HTTPS verification file is kept at `public/.well-known/discord` and is published at `https://riduanaziz.github.io/.well-known/discord` by the same workflow.
 ---
 
+## 🎓 Academic and Credential Content
+
+Academic records are maintained in `src/data/portfolioData.js` through the `education` and `certifications` arrays. Education entries support descriptions, status, CGPA, credits, activities, relevant skills, and academic documents. Credential entries support type, year or issue date, status, credential ID, official verification URL, associated skills, and certificate files.
+
+To publish a real document:
+
+1. Add the intentionally public PDF or image under `public/assets/academic/` or `public/assets/certificates/`.
+2. Set the matching `file` or `certificateFile` path in `src/data/portfolioData.js`, for example `/assets/academic/transcript.pdf`.
+3. Add a `credentialId` or `credentialUrl` only when it has been verified by the issuer.
+4. Run `npm run build` and check the generated `dist/assets` path before deploying.
+
+The transcript and degree certificate actions remain unavailable until genuine files are added. The expected paths are `/assets/academic/transcript.pdf` and `/assets/academic/degree-certificate.pdf`. The HSC and SSC certificate images are stored at `public/assets/academic/hsc-certificate.png` and `public/assets/academic/ssc-certificate.png`. The uploaded LEDP certificate is stored at `public/assets/certificates/ledp-graphic-design-training.pdf` and is linked to the Graphic Design training credential. Do not use the CV as a transcript or create placeholder certificates. Existing resume viewing remains separate and uses the real file at `public/assets/CV of Riduan Aziz.pdf`.
+
+Activities, societies, and academic skills are added to the relevant education object. Credential skills are added to each certification object. The reusable `EducationCard`, `CredentialCard`, `SkillTag`, and `DocumentViewer` components render these data fields and hide unsupported actions.
+
+Run the local site with:
+
+```bash
+npm install
+npm run dev
+```
+
+Build the production site with:
+
+```bash
+npm run build
+```
+
+After adding public documents, test the local preview and deploy through the existing GitHub Actions workflow.
+
 ## 📬 Contact & Links
 - Name: Riduan Aziz
 - Email: riduan.aziz46@gmail.com
