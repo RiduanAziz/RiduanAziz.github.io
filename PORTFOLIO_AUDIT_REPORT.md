@@ -31,10 +31,10 @@
 - [x] README framework and Node.js guidance updated.
 - [x] Obvious misleading contact-form wording corrected.
 - [x] Resume preview filename aligned with the actual download path.
-- [ ] `npm ci` and `npm run build` executed in a real checkout.
+- [x] GitHub Actions CI passed: [`npm ci` and `npm run build`](https://github.com/RiduanAziz/RiduanAziz.github.io/actions/runs/39471073032).
 - [ ] Browser smoke test of desktop and mobile layouts.
 - [ ] Keyboard/focus and reduced-motion checks.
 - [ ] Verification of all linked public assets and academic/certificate documents.
 - [ ] Post-merge GitHub Pages deployment check.
 
-**Build limitation:** The audit environment could not resolve `github.com` from its shell, so it was not possible to clone the branch and run `npm ci` or `npm run build` locally. A successful historical GitHub Actions deployment is not proof that this exact patch builds. The changes should remain under review until the branch has a successful CI build and the live page has been smoke-tested.
+**Local build limitation:** The audit environment could not resolve `github.com` from its shell, so it was not possible to clone the branch for a local build. However, the new GitHub Actions CI runner successfully completed `npm ci` and `npm run build` for the patch. The changes should remain under review until browser behavior has been smoke-tested and the owner-verification items above are resolved.
