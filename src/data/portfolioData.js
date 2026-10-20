@@ -122,7 +122,7 @@ export const projects = [
     category: "Research",
     description: "AI research exploring Automatic Speech Recognition for regional Bengali spontaneous speech, evaluating 100+ hours of audio across 12 subregions.",
     tech: ["Python", "Whisper", "PyTorch", "Hugging Face", "PEFT", "LoRA"],
-    github: "https://github.com/RiduanAziz",
+    github: null,
     status: "AI/ML Research"
   },
   {
