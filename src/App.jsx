@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useReducedMotion, useScroll } from 'framer-motion';
 import { 
   Mail, ExternalLink, Moon, Sun,
@@ -49,6 +49,9 @@ export default function App() {
   const [cvZoom, setCvZoom] = useState(100);
   const [cvViewMode, setCvViewMode] = useState('doc'); // 'doc' or 'pdf'
   const [activeDocument, setActiveDocument] = useState(null);
+  const resumeDialogRef = useRef(null);
+  const resumeCloseButtonRef = useRef(null);
+  const resumeOpenerRef = useRef(null);
 
   const resumeUrl = `${import.meta.env.BASE_URL}assets/CV of Riduan Aziz.pdf`;
   const cvPages = [
@@ -66,21 +69,38 @@ export default function App() {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape' || e.keyCode === 27) {
+      if (e.key === 'Escape') {
         setResumeModalOpen(false);
+        return;
       }
-
+      if (e.key === 'Tab') {
+        const focusable = resumeDialogRef.current?.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
+        if (!focusable?.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     if (resumeModalOpen) {
-      window.addEventListener('keydown', handleKeyDown, true);
-      document.addEventListener('keydown', handleKeyDown, true);
+      resumeOpenerRef.current = document.activeElement;
+      requestAnimationFrame(() => resumeCloseButtonRef.current?.focus());
+      document.addEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
+      if (resumeOpenerRef.current instanceof HTMLElement) {
+        resumeOpenerRef.current.focus();
+        resumeOpenerRef.current = null;
+      }
     }
     return () => {
-      window.removeEventListener('keydown', handleKeyDown, true);
-      document.removeEventListener('keydown', handleKeyDown, true);
+      document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'unset';
     };
   }, [resumeModalOpen]);
@@ -631,16 +651,22 @@ export default function App() {
                     </div>
                   </div>
                   <div className="p-6 border-t border-slate-100 dark:border-slate-700/70 bg-slate-50/70 dark:bg-slate-900/50 mt-auto">
-                    <a 
-                      href={project.github} 
-                      target="_blank" 
-                      rel="noreferrer" 
-                      className="text-sm font-semibold flex items-center gap-2 text-slate-700 dark:text-slate-200 hover:text-accent dark:hover:text-accent transition group/btn"
-                    >
-                      <FaGithub size={16} aria-hidden="true" className="group-hover/btn:scale-110 transition-transform" /> 
-                      <span>View Repository</span>
-                      <ExternalLink size={14} className="opacity-0 group-hover/btn:opacity-100 transition-opacity ml-auto" />
-                    </a>
+                    {project.github ? (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-sm font-semibold flex items-center gap-2 text-slate-700 dark:text-slate-200 hover:text-accent dark:hover:text-accent transition group/btn"
+                      >
+                        <FaGithub size={16} aria-hidden="true" className="group-hover/btn:scale-110 transition-transform" />
+                        <span>View Repository</span>
+                        <ExternalLink size={14} className="opacity-0 group-hover/btn:opacity-100 transition-opacity ml-auto" />
+                      </a>
+                    ) : (
+                      <span className="text-sm text-slate-500 dark:text-slate-400">
+                        Repository link pending verification
+                      </span>
+                    )}
                   </div>
                 </motion.div>
               ))}
@@ -844,7 +870,7 @@ export default function App() {
               <h3 className="text-xl font-bold mb-2 text-white flex items-center gap-2">
                 <Send size={18} className="text-accent" /> Send a Quick Message
               </h3>
-              <p className="text-xs text-slate-400 mb-6">Leave your details and your message will be forwarded directly.</p>
+              <p className="text-xs text-slate-400 mb-6">Your default mail client will open with your message details filled in. No message is sent by this website.</p>
 
               <form onSubmit={handleContactSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -854,6 +880,7 @@ export default function App() {
                       id="contact-name"
                       type="text" 
                       required
+                      maxLength={120}
                       placeholder="e.g. John Doe" 
                       value={contactForm.name}
                       onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
@@ -866,6 +893,7 @@ export default function App() {
                       id="contact-email"
                       type="email" 
                       required
+                      maxLength={254}
                       placeholder="john@example.com" 
                       value={contactForm.email}
                       onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
@@ -879,6 +907,7 @@ export default function App() {
                   <input 
                     id="contact-subject"
                     type="text" 
+                    maxLength={160}
                     placeholder="Project Inquiry / Job Opportunity" 
                     value={contactForm.subject}
                     onChange={(e) => setContactForm({ ...contactForm, subject: e.target.value })}
@@ -892,6 +921,7 @@ export default function App() {
                     id="contact-message"
                     rows="3" 
                     required
+                    maxLength={2000}
                     placeholder="Hi Riduan, I'd like to discuss..." 
                     value={contactForm.message}
                     onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
@@ -904,7 +934,7 @@ export default function App() {
                   className="orange-gradient-button electric-border w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2 bg-accent hover:bg-accent-hover text-white transition shadow-md"
                 >
                   <Send size={16} /> 
-                  <span>{formSent ? 'Opening Mail Client...' : 'Send Message'}</span>
+                  <span>{formSent ? 'Mail Client Opened' : 'Open Mail Client'}</span>
                 </button>
               </form>
             </div>
@@ -972,7 +1002,11 @@ export default function App() {
             onClick={() => setResumeModalOpen(false)}
             className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/80 backdrop-blur-md cursor-pointer"
           >
-            <motion.div 
+            <motion.div
+              ref={resumeDialogRef}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="resume-viewer-title"
               onClick={(e) => e.stopPropagation()}
               tabIndex={-1}
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -988,7 +1022,7 @@ export default function App() {
                     <FileText size={20} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 dark:text-white text-sm sm:text-base">
+                    <h3 id="resume-viewer-title" className="font-bold text-slate-900 dark:text-white text-sm sm:text-base">
                       Curriculum Vitae — Riduan Aziz
                     </h3>
                     <p className="text-[11px] text-slate-500 dark:text-slate-400">
@@ -1056,6 +1090,7 @@ export default function App() {
                   </a>
 
                   <button
+                    ref={resumeCloseButtonRef}
                     onClick={() => setResumeModalOpen(false)}
                     className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition ml-1"
                     aria-label="Close resume preview"

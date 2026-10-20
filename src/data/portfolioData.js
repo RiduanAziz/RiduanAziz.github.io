@@ -98,7 +98,7 @@ export const projects = [
     category: "Software",
     description: "A smart Android expense tracking application designed to help users manage personal expenses, categories, financial records, and spending insights.",
     tech: ["Java", "Android", "Firebase Auth", "Firebase Realtime DB", "MPAndroidChart"],
-    github: "https://github.com/RiduanAziz/SpendWise-Smart-Expense-Tracker",
+    github: null,
     status: "Completed Project"
   },
   {
@@ -106,7 +106,7 @@ export const projects = [
     category: "Software",
     description: "A practical rent and utility management system designed to manage tenants, rent payments, electricity, water, gas, internet, and service-related expenses.",
     tech: ["Java", "Android", "Cloud Firestore", "Excel", "VBA"],
-    github: "https://github.com/RiduanAziz",
+    github: null,
     status: "Personal / Real-World Management Project"
   },
   {
@@ -122,7 +122,7 @@ export const projects = [
     category: "Research",
     description: "AI research exploring Automatic Speech Recognition for regional Bengali spontaneous speech, evaluating 100+ hours of audio across 12 subregions.",
     tech: ["Python", "Whisper", "PyTorch", "Hugging Face", "PEFT", "LoRA"],
-    github: "https://github.com/RiduanAziz",
+    github: null,
     status: "AI/ML Research"
   },
   {
@@ -163,11 +163,6 @@ export const education = [
     cgpa: "3.795 / 4.000",
     credits: "152 / 160",
     period: "Expected graduation: December 2026",
-    reportedSnapshots: [
-      "Earlier reported snapshot: CGPA 3.782 / 4.00 through the seventh semester.",
-      "Later reported snapshot: CGPA 3.795 / 4.00 with 152 of 162 credits completed; thesis/project and industrial internship were outstanding at that time.",
-      "These reported snapshots differ from the current 152 / 160 credit record and require verification."
-    ],
     skills: ["Python", "Java", "C++", "C#", "SQL", "Object-Oriented Programming", "Application Development", "Database Management", "Data Analysis", "Machine Learning", "Computer Vision", "Speech Recognition"],
     activities: [
       {
@@ -336,8 +331,7 @@ export const awards = [
     id: "university-merit-scholarship",
     title: "University Merit Scholarship",
     organization: "Controller of the Examinations, Cox's Bazar International University",
-    date: "2026",
-    status: "Reported — verification pending",
+    date: "2022-2026",
     description: "A merit scholarship reported in the supplied profile data. The exact award name, years, frequency, and selection details require verification."
   },
   {
@@ -345,7 +339,6 @@ export const awards = [
     title: "Best Rover Scout (District) — National Education Week 2024",
     organization: "District Administration, Cox's Bazar",
     date: "May 2024",
-    status: "Reported — verification pending",
     description: "Recognition reported in the supplied profile data; certificate or official confirmation is pending."
   },
   {
@@ -353,7 +346,7 @@ export const awards = [
     title: "Best Rover Scout (Upazila) — National Education Week 2024",
     organization: "Upazila Administration, Cox's Bazar Sadar, Cox's Bazar",
     date: "May 2024",
-    status: "Reported — verification pending",
+    status: null,
     description: "Recognition reported in the supplied profile data; certificate or official confirmation is pending."
   }
 ];
@@ -365,7 +358,6 @@ export const volunteering = [
     organization: "Bangladesh Scouts",
     period: "July 2018 – present",
     area: "Disaster and humanitarian relief",
-    status: "Reported — verification pending",
     description: "Volunteer leadership experience reported in the supplied profile data. Exact current responsibilities require verification."
   }
 ];

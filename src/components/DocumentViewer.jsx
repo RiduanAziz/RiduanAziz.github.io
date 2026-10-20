@@ -4,6 +4,7 @@ import { assetPath } from '../utils/assets';
 
 const DocumentViewer = ({ document: documentData, context, onClose }) => {
   const closeButtonRef = useRef(null);
+  const dialogRef = useRef(null);
   const source = assetPath(documentData?.file);
   const isImage = /\.(png|jpe?g|webp|gif)$/i.test(documentData?.file || '');
 
@@ -14,7 +15,23 @@ const DocumentViewer = ({ document: documentData, context, onClose }) => {
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     const handleKeyDown = (event) => {
-      if (event.key === 'Escape') onClose();
+      if (event.key === 'Escape') {
+        onClose();
+        return;
+      }
+      if (event.key === 'Tab') {
+        const focusable = dialogRef.current?.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
+        if (!focusable?.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => {
@@ -35,6 +52,7 @@ const DocumentViewer = ({ document: documentData, context, onClose }) => {
       }}
     >
       <div
+        ref={dialogRef}
         className="flex h-[min(92vh,900px)] w-full max-w-6xl flex-col overflow-hidden rounded-xl bg-white shadow-2xl dark:bg-slate-900"
         role="dialog"
         aria-modal="true"

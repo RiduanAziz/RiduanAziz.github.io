@@ -1,8 +1,8 @@
 # Riduan Aziz — Personal IT & Software Engineering Portfolio
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen?style=flat-square&logo=github)](https://riduanaziz.github.io/)
-[![React](https://img.shields.io/badge/React-18.x-61DAFB?style=flat-square&logo=react)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?style=flat-square&logo=vite)](https://vitejs.dev/)
+[![React](https://img.shields.io/badge/React-19.3-61DAFB?style=flat-square&logo=react)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-8.2-646CFF?style=flat-square&logo=vite)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.x-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 
@@ -23,7 +23,7 @@ This website is a production-quality, responsive personal portfolio designed to 
 
 - **Name:** Riduan Aziz
 - **Headline:** Software Engineer | Data & AI/ML Enthusiast
-- **Education:** B.Sc. in Computer Science and Engineering — Cox's Bazar International University (CGPA: 3.782 / 4.00)
+- **Education:** B.Sc. in Computer Science and Engineering — Cox's Bazar International University (in progress; reported CGPA snapshots are documented in the portfolio)
 - **Positioning:** Bridging real-world field data experience in humanitarian operations with modern software engineering, machine learning research, and intelligent software development.
 
 ---
@@ -43,7 +43,7 @@ This website is a production-quality, responsive personal portfolio designed to 
 
 | Domain | Technologies Used |
 | :--- | :--- |
-| **Frontend Framework** | React 18, Vite |
+| **Frontend Framework** | React 19.3, Vite 8.2 |
 | **Styling & System** | Tailwind CSS, PostCSS, Autoprefixer |
 | **Icons & Animations** | Lucide React, Framer Motion |
 | **CI/CD & Hosting** | GitHub Actions, GitHub Pages |
@@ -82,7 +82,7 @@ RiduanAziz.github.io/
 Follow these steps to run the portfolio locally on your machine:
 
 Prerequisites
-- Node.js (v18.0.0 or higher)
+- Node.js (v20.19.0 or higher)
 - npm (v9.0.0 or higher)
 
 1. Clone the Repository
@@ -109,6 +109,8 @@ To test the production build locally:
 npm run build
 npm run preview
 ```
+
+The contact form uses `mailto:`: it opens the visitor's default mail client with the entered details. The portfolio does not transmit or claim delivery of messages itself.
 ---
 
 ## 📝 Updating Portfolio Content
