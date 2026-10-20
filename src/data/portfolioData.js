@@ -2,7 +2,7 @@ export const professionalInfo = {
   name: "Riduan Aziz",
   headline: "Data Science Enthusiast | Aspiring AI Engineer",
   subheadline: "Computer Science and Engineering undergraduate building practical software, data-driven solutions, and intelligent applications while developing toward a career in AI engineering.",
-  about: `Riduan Aziz is a Computer Science and Engineering professional with experience spanning data management, field data collection, reporting, database-related work, software development, analytics, and emerging AI/ML technologies. His background combines practical experience in data-driven humanitarian operations with technical development in Python, databases, application development, and machine learning. He is particularly interested in building technology that transforms data into useful information, intelligent systems, and practical software solutions.`,
+  about: `Riduan Aziz is a Computer Science and Engineering undergraduate with experience spanning data management, field data collection, reporting, database-related work, software development, analytics, and emerging AI/ML technologies. His background combines practical experience in data-driven humanitarian operations with technical development in Python, databases, application development, and machine learning. He is particularly interested in building technology that transforms data into useful information, intelligent systems, and practical software solutions.`,
   contacts: {
     email: "riduan.aziz46@gmail.com",
     github: "https://github.com/RiduanAziz",
@@ -17,7 +17,7 @@ export const professionalInfo = {
 export const metrics = [
   { label: "CGPA", value: "3.795 / 4.000", sub: "Bachelor of Science in Computer Science and Engineering" },
   { label: "Primary Focus", value: "AI + Data + Software", sub: "Bridging disciplines" },
-  { label: "Professional Experience", value: "3+ Roles", sub: "Data & Info Management" }
+  { label: "Professional Experience", value: "3 Roles", sub: "Data & Information Management" }
 ];
 
 export const impactHighlights = [
@@ -106,7 +106,7 @@ export const projects = [
     category: "Software",
     description: "A practical rent and utility management system designed to manage tenants, rent payments, electricity, water, gas, internet, and service-related expenses.",
     tech: ["Java", "Android", "Cloud Firestore", "Excel", "VBA"],
-    github: "https://github.com/RiduanAziz",
+    github: null,
     status: "Personal / Real-World Management Project"
   },
   {
@@ -157,17 +157,12 @@ export const education = [
     degree: "Bachelor of Science in Computer Science and Engineering",
     institution: "Cox's Bazar International University (CBIU)",
     department: "Computer Science and Engineering",
-    details: "CGPA: 3.795 / 4.000 | Completed: 152 / 160 Credits | Expected Graduation: December 2026 | Remaining: Thesis/Project and Industrial Internship",
+    details: "CGPA: 3.795 / 4.000 | Completed: 152 / 162 Credits | Expected Graduation: December 2026 | Remaining: Thesis/Project and Industrial Internship",
     status: "In progress",
     description: "My academic background in Computer Science and Engineering provides a foundation for software development, programming, algorithms, database systems, information technology, and computational problem-solving. I apply this foundation through software projects, data analysis, application development, and exploration of artificial intelligence and machine learning.",
     cgpa: "3.795 / 4.000",
-    credits: "152 / 160",
+    credits: "152 / 162",
     period: "Expected graduation: December 2026",
-    reportedSnapshots: [
-      "Earlier reported snapshot: CGPA 3.782 / 4.00 through the seventh semester.",
-      "Later reported snapshot: CGPA 3.795 / 4.00 with 152 of 162 credits completed; thesis/project and industrial internship were outstanding at that time.",
-      "These reported snapshots differ from the current 152 / 160 credit record and require verification."
-    ],
     skills: ["Python", "Java", "C++", "C#", "SQL", "Object-Oriented Programming", "Application Development", "Database Management", "Data Analysis", "Machine Learning", "Computer Vision", "Speech Recognition"],
     activities: [
       {
@@ -295,7 +290,7 @@ export const certifications = [
   },
   {
     id: "excel-intermediate",
-    title: "Microsoft Office Specialist: Excel Certification — Intermediate Level",
+    title: "Microsoft Office Specialist: Excel Training — Intermediate Level",
     issuer: "Great Learning",
     type: "Excel Training / Certificate",
     year: "2022",
@@ -307,7 +302,7 @@ export const certifications = [
   },
   {
     id: "excel-beginner",
-    title: "Microsoft Office Specialist: Excel Certification — Beginner Level",
+    title: "Microsoft Office Specialist: Excel Training — Beginner Level",
     issuer: "Great Learning",
     type: "Excel Training / Certificate",
     year: "2022",
