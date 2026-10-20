@@ -1,14 +1,14 @@
 # Riduan Aziz — Personal IT & Software Engineering Portfolio
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen?style=flat-square&logo=github)](https://riduanaziz.github.io/)
-[![React](https://img.shields.io/badge/React-18.x-61DAFB?style=flat-square&logo=react)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?style=flat-square&logo=vite)](https://vitejs.dev/)
+[![React](https://img.shields.io/badge/React-19.x-61DAFB?style=flat-square&logo=react)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-8.x-646CFF?style=flat-square&logo=vite)](https://vite.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.x-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 
 Welcome to the source repository for the personal technical portfolio of **Riduan Aziz**, deployed live at **[riduanaziz.github.io](https://riduanaziz.github.io/)**.
 
-This website is a production-quality, responsive personal portfolio designed to present a coherent career story bridging **Software Engineering**, **Data Management & Analytics**, and **AI/ML Applications**.
+This responsive personal portfolio presents work and interests across **Software Engineering**, **Data Management & Analytics**, and **AI/ML Applications**.
 
 ---
 
@@ -22,8 +22,8 @@ This website is a production-quality, responsive personal portfolio designed to 
 ## 🎯 Core Professional Identity
 
 - **Name:** Riduan Aziz
-- **Headline:** Software Engineer | Data & AI/ML Enthusiast
-- **Education:** B.Sc. in Computer Science and Engineering — Cox's Bazar International University (CGPA: 3.782 / 4.00)
+- **Headline:** CSE Undergraduate | Data Science Enthusiast | Aspiring AI Engineer
+- **Education:** B.Sc. in Computer Science and Engineering — Cox's Bazar International University (in progress; CGPA 3.795 / 4.00; 152 / 162 credits reported; thesis/project and industrial internship remaining as last reported)
 - **Positioning:** Bridging real-world field data experience in humanitarian operations with modern software engineering, machine learning research, and intelligent software development.
 
 ---
@@ -35,7 +35,7 @@ This website is a production-quality, responsive personal portfolio designed to 
 - **Dark / Light Theme Toggle:** System-aware theme toggle with persistent state handling.
 - **Recruiter-Friendly Showcase:** Highlighting career trajectories, verifiable CGPA metrics, field experience (World Vision, Handicap International), personal software projects (SpendWise, Aziz Mansion), and AI research (Bengali ASR, Dynamic ASL Recognition).
 - **Automated CI/CD Pipeline:** Integrated GitHub Actions workflow (`deploy.yml`) that builds and deploys the production distribution (`dist`) directly to GitHub Pages on every commit to the primary branch.
-- **Fully Responsive & Accessible:** Optimized for seamless performance across mobile (320px+), tablet, laptop, and ultra-wide desktop monitors.
+- **Responsive Layout:** Includes layouts for mobile, tablet, and desktop viewports. Verify keyboard, screen-reader, and real-device behavior when validating a release.
 
 ---
 
@@ -43,7 +43,7 @@ This website is a production-quality, responsive personal portfolio designed to 
 
 | Domain | Technologies Used |
 | :--- | :--- |
-| **Frontend Framework** | React 18, Vite |
+| **Frontend Framework** | React 19, Vite 8 |
 | **Styling & System** | Tailwind CSS, PostCSS, Autoprefixer |
 | **Icons & Animations** | Lucide React, Framer Motion |
 | **CI/CD & Hosting** | GitHub Actions, GitHub Pages |
@@ -82,18 +82,18 @@ RiduanAziz.github.io/
 Follow these steps to run the portfolio locally on your machine:
 
 Prerequisites
-- Node.js (v18.0.0 or higher)
+- Node.js (v22.12.0 or higher; the deployment workflow uses Node.js 22)
 - npm (v9.0.0 or higher)
 
 1. Clone the Repository
 ```Bash
-git clone [https://github.com/RiduanAziz/riduanaziz.github.io.git](https://github.com/RiduanAziz/riduanaziz.github.io.git)
+git clone https://github.com/RiduanAziz/RiduanAziz.github.io.git
 cd riduanaziz.github.io
 ```
 
 2. Install Dependencies
 ```Bash
-npm install
+npm ci
 ```
 
 3. Launch the Local Development Server
