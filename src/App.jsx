@@ -844,7 +844,7 @@ export default function App() {
               <h3 className="text-xl font-bold mb-2 text-white flex items-center gap-2">
                 <Send size={18} className="text-accent" /> Send a Quick Message
               </h3>
-              <p className="text-xs text-slate-400 mb-6">Leave your details and your message will be forwarded directly.</p>
+              <p className="text-xs text-slate-400 mb-6">Submitting opens your default email application with the message prefilled. This website does not send or store the message itself.</p>
 
               <form onSubmit={handleContactSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
