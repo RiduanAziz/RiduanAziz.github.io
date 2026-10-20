@@ -630,18 +630,21 @@ export default function App() {
                       ))}
                     </div>
                   </div>
-                  <div className="p-6 border-t border-slate-100 dark:border-slate-700/70 bg-slate-50/70 dark:bg-slate-900/50 mt-auto">
-                    <a 
-                      href={project.github} 
-                      target="_blank" 
-                      rel="noreferrer" 
-                      className="text-sm font-semibold flex items-center gap-2 text-slate-700 dark:text-slate-200 hover:text-accent dark:hover:text-accent transition group/btn"
-                    >
-                      <FaGithub size={16} aria-hidden="true" className="group-hover/btn:scale-110 transition-transform" /> 
-                      <span>View Repository</span>
-                      <ExternalLink size={14} className="opacity-0 group-hover/btn:opacity-100 transition-opacity ml-auto" />
-                    </a>
-                  </div>
+                  {project.github && (
+                    <div className="p-6 border-t border-slate-100 dark:border-slate-700/70 bg-slate-50/70 dark:bg-slate-900/50 mt-auto">
+                      <a 
+                        href={project.github} 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="text-sm font-semibold flex items-center gap-2 text-slate-700 dark:text-slate-200 hover:text-accent dark:hover:text-accent transition group/btn"
+                        aria-label={`Open GitHub repository for ${project.title}`}
+                      >
+                        <FaGithub size={16} aria-hidden="true" className="group-hover/btn:scale-110 transition-transform" /> 
+                        <span>View Repository</span>
+                        <ExternalLink size={14} className="opacity-0 group-hover/btn:opacity-100 transition-opacity ml-auto" />
+                      </a>
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -904,7 +907,7 @@ export default function App() {
                   className="orange-gradient-button electric-border w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2 bg-accent hover:bg-accent-hover text-white transition shadow-md"
                 >
                   <Send size={16} /> 
-                  <span>{formSent ? 'Opening Mail Client...' : 'Send Message'}</span>
+                  <span>{formSent ? 'Opening Email App...' : 'Open Email App'}</span>
                 </button>
               </form>
             </div>
@@ -1087,7 +1090,7 @@ export default function App() {
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center">
                     <object
-                      data={`${import.meta.env.BASE_URL}assets/cv.pdf#toolbar=1`}
+                      data={`${resumeUrl}#toolbar=1`}
                       type="application/pdf"
                       className="w-full h-full rounded-lg bg-white shadow-xl"
                     >
