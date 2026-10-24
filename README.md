@@ -106,9 +106,12 @@ npm run dev
 To test the production build locally:
 
 ```Bash
+npm run validate:data
 npm run build
 npm run preview
 ```
+
+`npm run validate:data` checks record IDs, required fields, URLs, and referenced files before the production build. The same check runs in GitHub Actions before deployment.
 
 The contact form uses `mailto:`: it opens the visitor's default mail client with the entered details. The portfolio does not transmit or claim delivery of messages itself.
 ---
@@ -154,7 +157,7 @@ To publish a real document:
 3. Add a `credentialId` or `credentialUrl` only when it has been verified by the issuer.
 4. Run `npm run build` and check the generated `dist/assets` path before deploying.
 
-The transcript and degree certificate actions remain unavailable until genuine files are added. The expected paths are `/assets/academic/transcript.pdf` and `/assets/academic/degree-certificate.pdf`. The HSC and SSC certificate images are stored at `public/assets/academic/hsc-certificate.png` and `public/assets/academic/ssc-certificate.png`. The uploaded LEDP certificate is stored at `public/assets/certificates/ledp-graphic-design-training.pdf` and is linked to the Graphic Design training credential. Do not use the CV as a transcript or create placeholder certificates. Existing resume viewing remains separate and uses the real file at `public/assets/CV of Riduan Aziz.pdf`.
+The BSc (Hons.) academic transcript is available as three source PDFs under `public/assets/academic/` and is previewed as three page images in the transcript viewer. The degree certificate action remains unavailable until a genuine certificate is added. The HSC, SSC, JSC, and PEC certificate images are stored under `public/assets/academic/`. The uploaded LEDP certificate is stored at `public/assets/certificates/ledp-graphic-design-training.pdf` and is linked to the Graphic Design training credential. Do not use the CV as a transcript or create placeholder certificates. Existing resume viewing remains separate and uses the real file at `public/assets/CV of Riduan Aziz.pdf`.
 
 Activities, societies, and academic skills are added to the relevant education object. Credential skills are added to each certification object. The reusable `EducationCard`, `CredentialCard`, `SkillTag`, and `DocumentViewer` components render these data fields and hide unsupported actions.
 

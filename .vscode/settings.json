@@ -1,0 +1,9 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^find public -type f -printf '%p\\\\n' \\| sort && printf '\\\\n--- docs/audits ---\\\\n' && find \\. -maxdepth 3 -type f \\\\\\( -iname '\\*audit\\*' -o -iname 'README\\*' \\\\\\) -not -path '\\./node_modules/\\*' -print$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    },
+    "remote.autoForwardPortsFallback": 0
+}

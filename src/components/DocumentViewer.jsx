@@ -6,6 +6,7 @@ const DocumentViewer = ({ document: documentData, context, onClose }) => {
   const closeButtonRef = useRef(null);
   const dialogRef = useRef(null);
   const source = assetPath(documentData?.file);
+  const pages = documentData?.pages || [];
   const isImage = /\.(png|jpe?g|webp|gif)$/i.test(documentData?.file || '');
 
   useEffect(() => {
@@ -76,7 +77,19 @@ const DocumentViewer = ({ document: documentData, context, onClose }) => {
           </div>
         </header>
         <div className="min-h-0 flex-1 bg-slate-100 p-3 dark:bg-slate-950">
-          {isImage ? (
+          {pages.length > 0 ? (
+            <div className="flex h-full flex-col items-center gap-6 overflow-y-auto p-2 sm:p-4">
+              {pages.map((page, index) => (
+                <div key={page} className="w-full max-w-5xl">
+                  <div className="mb-2 flex items-center justify-between px-1 text-xs text-slate-500 dark:text-slate-400">
+                    <span className="font-semibold text-accent">Page {index + 1} of {pages.length}</span>
+                    <span>{documentData.title}</span>
+                  </div>
+                  <img src={assetPath(page)} alt={`${documentData.title} - Page ${index + 1}`} className="w-full rounded-lg border border-slate-200 bg-white shadow-xl dark:border-slate-800" />
+                </div>
+              ))}
+            </div>
+          ) : isImage ? (
             <img src={source} alt={documentData.title} className="h-full w-full object-contain" />
           ) : (
             <iframe title={documentData.title} src={`${source}#toolbar=1`} className="h-full w-full rounded border-0 bg-white" />

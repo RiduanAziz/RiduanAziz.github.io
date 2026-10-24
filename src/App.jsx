@@ -9,7 +9,7 @@ import { FaGithub, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 import { FaDiscord, FaXTwitter } from 'react-icons/fa6';
 import { 
   professionalInfo, metrics, impactHighlights, focusAreas, experience, skills,
-  projects, concepts, education, certifications, awards, volunteering
+  projects, concepts, education, certifications, awards, leadership, volunteering
 } from './data/portfolioData';
 import TechFrame from './components/TechFrame';
 import ProfessionalPhotoFrame from './components/ProfessionalPhotoFrame';
@@ -136,10 +136,14 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(professionalInfo.contacts.email);
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2200);
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(professionalInfo.contacts.email);
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2200);
+    } catch {
+      setCopiedEmail(false);
+    }
   };
 
   const handleContactSubmit = (e) => {
@@ -150,12 +154,6 @@ export default function App() {
     setFormSent(true);
     setTimeout(() => setFormSent(false), 4000);
   };
-
-  const experienceTags = [
-    ["KoboCollect", "Field Assessments", "Data QA", "PSEA Safeguarding", "Documentation"],
-    ["Household Surveys", "Field Verification", "Socio-Economic Data", "Data Integrity"],
-    ["Database Management", "Data Cleaning", "Cross-Validation", "Spreadsheets"]
-  ];
 
   const filteredProjects = projects.filter((project) => {
     const matchesCategory = 
@@ -461,7 +459,7 @@ export default function App() {
         <div className="relative border-l-2 border-slate-200 dark:border-slate-800 ml-4 md:ml-0">
           {experience.map((exp, index) => (
             <motion.div 
-              key={index} 
+              key={exp.id || `${exp.company}-${exp.role}`}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -471,16 +469,47 @@ export default function App() {
               <div className="absolute w-4 h-4 bg-accent rounded-full -left-[9px] top-1 border-4 border-white dark:border-slate-900 shadow-[0_0_8px_rgba(79,140,255,0.6)]"></div>
               <h3 className="text-xl font-bold text-slate-900 dark:text-white">{exp.role}</h3>
               <p className="text-lg font-medium text-slate-700 dark:text-slate-300 mb-1">{exp.company}</p>
-              <p className="text-sm text-slate-500 mb-3">{exp.period}</p>
+              <div className="flex flex-wrap items-center gap-2 text-sm text-slate-500 mb-3">
+                <span>{exp.period}</span>
+                {exp.employmentType && <span className="rounded-full border border-slate-300 dark:border-slate-700 px-2 py-0.5">{exp.employmentType}</span>}
+                {exp.status && <span className="rounded-full border border-accent/30 bg-accent/10 px-2 py-0.5 text-accent">{exp.status}</span>}
+              </div>
+              {exp.department && <p className="text-sm text-slate-500 dark:text-slate-400 mb-3">{exp.department}</p>}
               
               {/* Role Skills / Tools Tags */}
-              {experienceTags[index] && (
+              {exp.tags?.length > 0 && (
                 <div className="flex flex-wrap gap-1.5 mb-5">
-                  {experienceTags[index].map((t) => (
+                  {exp.tags.map((t) => (
                     <span key={t} className="text-xs px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/25 text-accent font-medium">
                       {t}
                     </span>
                   ))}
+                </div>
+              )}
+
+              {exp.researchProject && (
+                <div className="mb-5 rounded-lg border border-accent/20 bg-accent/5 p-4">
+                  <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-1 uppercase tracking-wider">Research project</h4>
+                  <a href={exp.researchProject.github} target="_blank" rel="noreferrer" className="font-semibold text-accent hover:underline">
+                    {exp.researchProject.title}
+                  </a>
+                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">{exp.researchProject.description}</p>
+                </div>
+              )}
+
+              {exp.technologies?.length > 0 && (
+                <div className="mb-5">
+                  <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-2 uppercase tracking-wider">Technologies</h4>
+                  <p className="text-slate-600 dark:text-slate-400">{exp.technologies.join(" · ")}</p>
+                </div>
+              )}
+
+              {exp.learningFocus?.length > 0 && (
+                <div className="mb-5">
+                  <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-2 uppercase tracking-wider">Learning focus</h4>
+                  <ul className="list-disc list-inside text-slate-600 dark:text-slate-400 space-y-1">
+                    {exp.learningFocus.map((topic) => <li key={topic}>{topic}</li>)}
+                  </ul>
                 </div>
               )}
               
@@ -491,12 +520,15 @@ export default function App() {
                 </ul>
               </div>
               
-              <div>
-                <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-2 uppercase tracking-wider">Achievements</h4>
-                <ul className="list-disc list-inside text-slate-600 dark:text-slate-400 space-y-1">
-                  {exp.achievements.map((ach, i) => <li key={i}>{ach}</li>)}
-                </ul>
-              </div>
+              {exp.achievements?.length > 0 && (
+                <div>
+                  <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-2 uppercase tracking-wider">Achievements</h4>
+                  <ul className="list-disc list-inside text-slate-600 dark:text-slate-400 space-y-1">
+                    {exp.achievements.map((ach) => <li key={ach}>{ach}</li>)}
+                  </ul>
+                </div>
+              )}
+
             </motion.div>
           ))}
         </div>
@@ -619,10 +651,10 @@ export default function App() {
         ) : (
           <motion.div layout className="grid md:grid-cols-2 gap-8 mb-16">
             <AnimatePresence>
-              {filteredProjects.map((project, index) => (
+              {filteredProjects.map((project) => (
                 <motion.div 
                   layout
-                  key={project.title}
+                  key={project.id}
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
@@ -679,7 +711,7 @@ export default function App() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {concepts.map((concept, idx) => (
             <motion.div 
-              key={idx}
+              key={concept.id}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -763,7 +795,25 @@ export default function App() {
                   </div>
                   <p className="mt-2 text-sm font-medium text-slate-600 dark:text-slate-300">{award.organization}</p>
                   <p className="mt-3 text-sm leading-6 text-slate-500 dark:text-slate-400">{award.description}</p>
-                  <span className="mt-3 inline-flex rounded-full bg-amber-500/10 px-2.5 py-1 text-xs font-semibold text-amber-700 dark:text-amber-300">{award.status}</span>
+                  {award.status && <span className="mt-3 inline-flex rounded-full bg-amber-500/10 px-2.5 py-1 text-xs font-semibold text-amber-700 dark:text-amber-300">{award.status}</span>}
+                </article>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Leadership & Activities</h3>
+            <div className="space-y-4">
+              {leadership.map((role) => (
+                <article key={role.id} className="card-border-effect rounded-lg bg-white p-5 dark:bg-slate-800/50">
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <h4 className="font-bold text-slate-900 dark:text-white">{role.role}</h4>
+                      <p className="mt-2 text-sm font-medium text-accent">{role.organization}</p>
+                    </div>
+                    {role.period && <span className="text-xs font-semibold text-accent">{role.period}</span>}
+                  </div>
+                  {role.institution && <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{role.institution}</p>}
+                  {role.area && <p className="mt-3 text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">{role.area}</p>}
                 </article>
               ))}
             </div>
@@ -779,7 +829,7 @@ export default function App() {
                   </div>
                   <p className="mt-2 text-sm font-medium text-slate-600 dark:text-slate-300">{role.organization} · {role.area}</p>
                   <p className="mt-3 text-sm leading-6 text-slate-500 dark:text-slate-400">{role.description}</p>
-                  <span className="mt-3 inline-flex rounded-full bg-amber-500/10 px-2.5 py-1 text-xs font-semibold text-amber-700 dark:text-amber-300">{role.status}</span>
+                  {role.status && <span className="mt-3 inline-flex rounded-full bg-amber-500/10 px-2.5 py-1 text-xs font-semibold text-amber-700 dark:text-amber-300">{role.status}</span>}
                 </article>
               ))}
             </div>

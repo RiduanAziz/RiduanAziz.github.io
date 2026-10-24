@@ -2,6 +2,47 @@
 
 Date: 2026-10-20
 
+## Internship update — 2026-10-23
+
+### Follow-up source review — 2026-10-23
+
+- Updated the internship role to **Research Intern** and linked the verified
+  [Robust Real-Time Dynamic Word-Level American Sign Language Recognition
+  repository](https://github.com/RiduanAziz/Robust-Real-Time-Dynamic-Word-Level-American-Sign-Language-Recognition).
+- Reviewed the five additional supplied Google files: the CSE 4109 kickoff,
+  CSE 4109 course document, Microsoft 365 guidebook, Microsoft 365 session,
+  and engineering infrastructure/research workshop. The internship record now
+  reflects their documented research methodology, technical presentation,
+  Microsoft 365, Azure VM, and Miro learning focus without presenting training
+  material as a completed certification or achievement.
+- The supplied materials informed the internship content but are not exposed as
+  source links in the public internship section. The research project
+  technologies are based on the linked repository's public project
+  documentation.
+
+- Added `industrial-internship-2026-08` to the `experience` data in
+  [`src/data/portfolioData.js`](src/data/portfolioData.js), displayed first as an
+  in-progress CSE 4109 Industrial Internship entry for August 2026 – October 2026.
+- Source reviewed: the supplied Google Doc export,
+  [CSE 4109 Industrial Internship Course Document — CBIU Fall 2026](https://docs.google.com/document/d/1z9r-ekDPNl3zaDI2zWqUI5Pe7zDU7QQ7sm7rY3dbM74/edit?usp=drivesdk).
+  The document verifies CBIU, the Department of Computer Science and Engineering,
+  the CSE 4109 course, and student-intern responsibilities. It does not identify
+  the student's host organization, an assigned role title beyond the course,
+  completed achievements, or tools actually used.
+- Updated [`src/App.jsx`](src/App.jsx) to render optional internship metadata,
+  record-specific tags, stable experience keys, and to omit absent achievements.
+- No skills, projects, certifications, awards, links, or existing employment
+  records were changed because the source does not provide evidence for additions.
+- Missing details requiring confirmation: host organization, exact placement
+  title, department/team if different from CBIU CSE, assigned responsibilities,
+  technologies/tools used, projects/deliverables, learning outcomes, and
+  supervisor details.
+- Validation results: `npm ci` completed successfully; `npm run validate:data`
+  passed; `npm run build` passed; `npm ls --depth=0` completed successfully;
+  `git diff --check` passed; and the Vite development server responded from
+  `http://localhost:5173/`. `npm ci` reported 5 existing audit findings
+  (3 moderate and 2 high); no package versions were changed.
+
 ## Findings and severity
 
 | Severity | Finding | Status |
